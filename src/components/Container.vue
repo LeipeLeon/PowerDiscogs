@@ -4,17 +4,21 @@ import {
   NSpace,
   NLayoutHeader,
   NLayoutContent,
-  NLayoutSider,
   NLayoutFooter,
   NInput,
   useMessage,
+  NGrid,
+  NGridItem,
+  NH2,
+  NH3,
 } from "naive-ui";
 
 import { ref } from "vue";
 
 const inputString = ref(null);
 const masterItems = ref([{ id: -1, title: "First do a search" }]);
-const releaseItems = ref([{ id: -1, title: "No master release selected" }]);
+const releaseItems = ref([{ id: -1, title: "No master selected" }]);
+const releaseDetails = ref([{ id: -1, title: "No release selected" }]);
 
 const message = useMessage();
 const handleKeyUp = (e) => {
@@ -28,6 +32,11 @@ const handleMasterClick = (e) => {
   e.preventDefault();
   console.log("handleMasterClick", e.target.dataset.id);
   searchReleaseItems(e.target.dataset.id);
+};
+const handleReleaseClick = (e) => {
+  e.preventDefault();
+  console.log("handleReleaseClick", e.target.dataset.id);
+  searchReleaseDetails(e.target.dataset.id);
 };
 // Search Master Release
 const searchMasterRelease = () => {
@@ -47,7 +56,7 @@ const searchMasterRelease = () => {
     .catch(console.error.bind(console));
   console.log("masterItems", masterItems);
 };
-// Search Master Release
+
 const searchReleaseItems = (masterId) => {
   const fetchUrl = `https://api.discogs.com/masters/${masterId}/versions?format=7%22`;
 
@@ -63,6 +72,22 @@ const searchReleaseItems = (masterId) => {
     .catch(console.error.bind(console));
   console.log("releaseItems", releaseItems);
 };
+
+const searchReleaseDetails = (releaseId) => {
+  const fetchUrl = `https://api.discogs.com/releases/${releaseId}`;
+
+  fetch(fetchUrl, {
+    method: "GET",
+    headers: {
+      Authorization: `Discogs token=${import.meta.env.VITE_DISCOGS_API_TOKEN}`,
+      "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => (releaseDetails.value = data))
+    .catch(console.error.bind(console));
+  console.log("releaseDetails", releaseDetails);
+};
 </script>
 
 <template>
@@ -77,35 +102,64 @@ const searchReleaseItems = (masterId) => {
           @keyup="handleKeyUp"
         />
       </n-layout-header>
-      <n-layout has-sider position="absolute" style="top: 64px; bottom: 64px">
-        <n-layout-sider bordered content-style="padding: 24px;" width="500">
-          <div
-            v-for="item in masterItems"
-            :key="item.id"
-            class="master-item"
-            @click="handleMasterClick"
-            :data-id="item.id"
-          >
-            <img
-              :src="item.thumb"
-              style="max-height: 50px; vertical-align: middle"
-            />
-            {{ item.title }}
-          </div>
-        </n-layout-sider>
-        <n-layout-content content-style="padding: 24px;">
-          <div
-            v-for="item in releaseItems"
-            :key="item.id"
-            class="release-item"
-            :data-id="item.id"
-          >
-            <img
-              :src="item.thumb"
-              style="max-height: 50px; vertical-align: middle"
-            />
-            {{ item.title }}
-          </div>
+      <n-layout position="absolute" style="top: 64px; bottom: 64px">
+        <n-layout-content content-style="padding: 12px">
+          <n-grid cols="3" x-gap="12">
+            <n-grid-item
+              ><n-h3>Master</n-h3>
+              <div
+                v-for="item in masterItems"
+                :key="item.id"
+                class="master-item"
+                @click="handleMasterClick"
+                :data-id="item.id"
+              >
+                <img
+                  :src="item.thumb"
+                  style="max-height: 50px; vertical-align: middle"
+                />
+                {{ item.title }}
+              </div></n-grid-item
+            >
+            <n-grid-item
+              ><n-h3>Version</n-h3>
+              <div
+                v-for="item in releaseItems"
+                :key="item.id"
+                class="release-item"
+                @click="handleReleaseClick"
+                :data-id="item.id"
+                :class="
+                  item.stats?.user.in_collection
+                    ? 'in_collection'
+                    : '' && item.stats?.user.in_wantlist
+                    ? 'in_wantlist'
+                    : ''
+                "
+              >
+                <img
+                  :src="item.thumb"
+                  style="max-height: 50px; vertical-align: middle"
+                />
+                {{ item.title }}
+              </div>
+            </n-grid-item>
+            <n-grid-item
+              ><n-h3>Details</n-h3>
+              <n-h2>
+                {{ releaseDetails.artists_sort }}
+                -
+                {{ releaseDetails.title }}
+              </n-h2>
+              <img :src="releaseDetails.thumb" />
+              <dl>
+                <dt>For sale:</dt>
+                <dd>{{ releaseDetails.num_for_sale }}</dd>
+                <dt>Lowest Price:</dt>
+                <dd>{{ releaseDetails.lowest_price }} EUR</dd>
+              </dl>
+            </n-grid-item>
+          </n-grid>
         </n-layout-content>
       </n-layout>
       <n-layout-footer
@@ -121,6 +175,12 @@ const searchReleaseItems = (masterId) => {
 <style scoped>
 .release-item:nth-child(even),
 .master-item:nth-child(even) {
-  background: #f1f1f1;
+  background-color: #f1f1f1;
+}
+.in_collection {
+  background-color: green !important;
+}
+.in_wantlist {
+  background-color: red !important;
 }
 </style>
