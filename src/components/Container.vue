@@ -13,8 +13,9 @@ import {
   NH2,
   NH3,
 } from "naive-ui";
-
+const message = useMessage();
 const inputString = ref();
+
 const masterItems = ref<Array<MasterItem>>([
   { id: -1, title: "First do a search" },
 ]);
@@ -23,7 +24,6 @@ const versionItems = ref<Array<Version>>([
 ]);
 const releaseDetails = ref<Release>();
 
-const message = useMessage();
 const handleKeyUp = (e: any) => {
   if (e.key === "Enter") {
     // send request
