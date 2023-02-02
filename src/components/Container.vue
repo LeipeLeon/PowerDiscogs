@@ -15,13 +15,32 @@ import {
 import { ref } from "vue";
 
 const inputString = ref(null);
-
+const masterItems = ref([]);
 const message = useMessage();
 const handleKeyUp = (e) => {
   if (e.key === "Enter") {
     // send request
+    searchMasterRelease();
     message.info("[Event keyup]");
   }
+};
+
+// Search Master Release
+const searchMasterRelease = () => {
+  const fetchUrl =
+    "https://api.discogs.com/database/search?format=7%22&type=master&q=" +
+    inputString.value;
+
+  fetch(fetchUrl, {
+    method: "GET",
+    headers: {
+      Authorization: `Discogs token=${import.meta.env.VITE_DISCOGS_API_TOKEN}`,
+      "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => (masterItems.value = data.results))
+    .catch(console.error.bind(console));
 };
 </script>
 
@@ -39,6 +58,9 @@ const handleKeyUp = (e) => {
       </n-layout-header>
       <n-layout has-sider position="absolute" style="top: 64px; bottom: 64px">
         <n-layout-sider bordered content-style="padding: 24px;">
+          <ul>
+            <li v-for="item in masterItems">{{ item }}</li>
+          </ul>
           <!-- <n-input
             v-model:value="inputString"
             type="textarea"
