@@ -175,18 +175,21 @@ const searchReleaseDetails = (releaseId: number) => {
             </n-grid-item>
             <n-grid-item
               ><n-h3>Details</n-h3>
-              <n-h2>
-                {{ releaseDetails.artists_sort }}
-                -
-                {{ releaseDetails.title }}
-              </n-h2>
-              <img :src="releaseDetails.thumb" />
-              <dl>
-                <dt>For sale:</dt>
-                <dd>{{ releaseDetails.num_for_sale }}</dd>
-                <dt>Lowest Price:</dt>
-                <dd>{{ releaseDetails.lowest_price }} EUR</dd>
-              </dl>
+              <div v-if="releaseDetails">
+                <n-h2>
+                  {{ releaseDetails.artists_sort }}
+                  -
+                  {{ releaseDetails.title }}
+                </n-h2>
+                <img :src="releaseDetails.thumb" />
+                <dl>
+                  <dt>For sale:</dt>
+                  <dd>{{ releaseDetails.num_for_sale }}</dd>
+                  <dt>Lowest Price:</dt>
+                  <dd>{{ releaseDetails.lowest_price }} EUR</dd>
+                </dl>
+              </div>
+              <n-h2 v-else>No Version selected</n-h2>
             </n-grid-item>
           </n-grid>
         </n-layout-content>
