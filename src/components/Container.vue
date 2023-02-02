@@ -8,7 +8,6 @@ import {
   NLayoutFooter,
   NInput,
   useMessage,
-  NSwitch,
 } from "naive-ui";
 
 import { ref } from "vue";
@@ -16,7 +15,6 @@ import { ref } from "vue";
 const inputString = ref(null);
 const masterItems = ref([{ id: -1, title: "First do a search" }]);
 const releaseItems = ref([{ id: -1, title: "No master release selected" }]);
-const inverted = ref(false);
 
 const message = useMessage();
 const handleKeyUp = (e) => {
@@ -70,11 +68,7 @@ const searchReleaseItems = (masterId) => {
 <template>
   <div style="height: 100vh; position: relative">
     <n-layout position="absolute">
-      <n-layout-header
-        style="height: 64px; padding: 24px"
-        bordered
-        :inverted="inverted"
-      >
+      <n-layout-header style="padding: 1rem" bordered inverted>
         <n-input
           v-model:value="inputString"
           type="text"
@@ -84,12 +78,7 @@ const searchReleaseItems = (masterId) => {
         />
       </n-layout-header>
       <n-layout has-sider position="absolute" style="top: 64px; bottom: 64px">
-        <n-layout-sider
-          bordered
-          content-style="padding: 24px;"
-          :inverted="inverted"
-          width="500"
-        >
+        <n-layout-sider bordered content-style="padding: 24px;" width="500">
           <div
             v-for="item in masterItems"
             :key="item.id"
@@ -123,9 +112,7 @@ const searchReleaseItems = (masterId) => {
         bordered
         position="absolute"
         style="height: 64px; padding: 24px"
-        :inverted="inverted"
       >
-        <n-space> <n-switch v-model:value="inverted" /> inverted </n-space>
       </n-layout-footer>
     </n-layout>
   </div>
