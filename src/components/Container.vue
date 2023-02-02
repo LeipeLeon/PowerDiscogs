@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
 import {
   NLayout,
   NSpace,
@@ -13,12 +15,39 @@ import {
   NH3,
 } from "naive-ui";
 
-import { ref } from "vue";
+interface MasterItem {
+  id: number;
+  title: string;
+  thumb?: string;
+}
+interface ReleaseItem {
+  id: number;
+  title: string;
+  thumb?: string;
+  stats?: {
+    user: {
+      in_collection: number;
+      in_wantlist: number;
+    };
+  };
+}
+interface ReleaseDetail {
+  id: number;
+  title: string;
+  thumb?: string;
+  artists_sort?: string;
+  num_for_sale?: number;
+  lowest_price?: number;
+}
 
 const inputString = ref(null);
-const masterItems = ref([{ id: -1, title: "First do a search" }]);
-const releaseItems = ref([{ id: -1, title: "No master selected" }]);
-const releaseDetails = ref([{ id: -1, title: "No release selected" }]);
+const masterItems = ref<Array<MasterItem>>([
+  { id: -1, title: "First do a search" },
+]);
+const releaseItems = ref<Array<ReleaseItem>>([
+  { id: -1, title: "No master selected" },
+]);
+const releaseDetails = ref<ReleaseDetail>();
 
 const message = useMessage();
 const handleKeyUp = (e: any) => {
