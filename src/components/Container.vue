@@ -68,19 +68,19 @@ const searchMasterRelease = () => {
     "https://api.discogs.com/database/search?format=7%22&type=master&q=" +
     inputString.value;
   fetchData(fetchUrl, (data: any) => (masterItems.value = data.results));
-  console.log("masterItems", masterItems);
+  // console.log("masterItems", masterItems);
 };
 
 const searchVersion = (masterId: number) => {
   const fetchUrl = `https://api.discogs.com/masters/${masterId}/versions?format=7%22`;
   fetchData(fetchUrl, (data: any) => (versionItems.value = data.versions));
-  console.log("versionItems", versionItems);
+  // console.log("versionItems", versionItems);
 };
 
 const searchReleases = (releaseId: number) => {
   const fetchUrl = `https://api.discogs.com/releases/${releaseId}`;
   fetchData(fetchUrl, (data: any) => (releaseDetails.value = data));
-  console.log("releaseDetails", releaseDetails);
+  // console.log("releaseDetails", releaseDetails);
 };
 </script>
 
