@@ -73,44 +73,33 @@ const requestHeaders = {
   "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
 };
 
-const searchMasterRelease = () => {
-  const fetchUrl =
-    "https://api.discogs.com/database/search?format=7%22&type=master&q=" +
-    inputString.value;
-
+const fetchData = (fetchUrl, callback) => {
   fetch(fetchUrl, {
     method: "GET",
     headers: requestHeaders,
   })
     .then((res) => res.json())
-    .then((data) => (masterItems.value = data.results))
+    .then((data) => callback(data))
     .catch(console.error.bind(console));
+};
+
+const searchMasterRelease = () => {
+  const fetchUrl =
+    "https://api.discogs.com/database/search?format=7%22&type=master&q=" +
+    inputString.value;
+  fetchData(fetchUrl, (data) => (masterItems.value = data.results));
   console.log("masterItems", masterItems);
 };
 
 const searchReleaseItems = (masterId: number) => {
   const fetchUrl = `https://api.discogs.com/masters/${masterId}/versions?format=7%22`;
-
-  fetch(fetchUrl, {
-    method: "GET",
-    headers: requestHeaders,
-  })
-    .then((res) => res.json())
-    .then((data) => (releaseItems.value = data.versions))
-    .catch(console.error.bind(console));
+  fetchData(fetchUrl, (data) => (releaseItems.value = data.versions));
   console.log("releaseItems", releaseItems);
 };
 
 const searchReleaseDetails = (releaseId: number) => {
   const fetchUrl = `https://api.discogs.com/releases/${releaseId}`;
-
-  fetch(fetchUrl, {
-    method: "GET",
-    headers: requestHeaders,
-  })
-    .then((res) => res.json())
-    .then((data) => (releaseDetails.value = data))
-    .catch(console.error.bind(console));
+  fetchData(fetchUrl, (data) => (releaseDetails.value = data));
   console.log("releaseDetails", releaseDetails);
 };
 </script>
