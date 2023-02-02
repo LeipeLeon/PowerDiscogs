@@ -1,0 +1,543 @@
+{
+  "id": 246348,
+  "status": "Accepted",
+  "year": 1982,
+  "resource_url": "https://api.discogs.com/releases/246348",
+  "uri": "https://www.discogs.com/release/246348-Captain-Sensible-Wot",
+  "artists": [
+    {
+      "name": "Captain Sensible",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 52509,
+      "resource_url": "https://api.discogs.com/artists/52509",
+      "thumbnail_url": "https://i.discogs.com/SYuBaKK07-b0VU0YpUL5VwCoyt6e7ouAmydkJAO--gI/rs:fit/g:sm/q:40/h:450/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUyNTA5/LTEyMDI0NjYyOTIu/anBlZw.jpeg"
+    }
+  ],
+  "artists_sort": "Captain Sensible",
+  "labels": [
+    {
+      "name": "A&M Records",
+      "catno": "AMS 9228",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 904,
+      "resource_url": "https://api.discogs.com/labels/904",
+      "thumbnail_url": "https://i.discogs.com/zAsbg9AuvNoiyfDa0OZPeymwQTvd_Y0I3fX2oUvVh9E/rs:fit/g:sm/q:40/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTkwNC0x/Mzc5NTAyOTM2LTI1/MDcucG5n.jpeg"
+    }
+  ],
+  "series": [],
+  "companies": [
+    {
+      "name": "A&M Records, Inc.",
+      "catno": "",
+      "entity_type": "4",
+      "entity_type_name": "Record Company",
+      "id": 74446,
+      "resource_url": "https://api.discogs.com/labels/74446",
+      "thumbnail_url": "https://i.discogs.com/pl51adWnPXdj2DbrR4dcCStlERcXINQxC2Pqx14Tcxg/rs:fit/g:sm/q:40/h:120/w:245/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTc0NDQ2/LTE1NDA2NDkzMDEt/OTQ2Ni5wbmc.jpeg"
+    },
+    {
+      "name": "A&M Records Ltd.",
+      "catno": "",
+      "entity_type": "13",
+      "entity_type_name": "Phonographic Copyright (p)",
+      "id": 125796,
+      "resource_url": "https://api.discogs.com/labels/125796",
+      "thumbnail_url": "https://i.discogs.com/ywsFIztsbUlRfm7nBfmRz9UbAVTh07f6-jby1gWxBJY/rs:fit/g:sm/q:40/h:72/w:466/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTEyNTc5/Ni0xNDkwNzkwMzQ3/LTE0NTAuanBlZw.jpeg"
+    },
+    {
+      "name": "A&M Records Ltd.",
+      "catno": "",
+      "entity_type": "14",
+      "entity_type_name": "Copyright (c)",
+      "id": 125796,
+      "resource_url": "https://api.discogs.com/labels/125796",
+      "thumbnail_url": "https://i.discogs.com/ywsFIztsbUlRfm7nBfmRz9UbAVTh07f6-jby1gWxBJY/rs:fit/g:sm/q:40/h:72/w:466/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTEyNTc5/Ni0xNDkwNzkwMzQ3/LTE0NTAuanBlZw.jpeg"
+    },
+    {
+      "name": "CBS Records",
+      "catno": "",
+      "entity_type": "9",
+      "entity_type_name": "Distributed By",
+      "id": 19936,
+      "resource_url": "https://api.discogs.com/labels/19936",
+      "thumbnail_url": "https://i.discogs.com/1OQFVzyG1X8t4TpvyZzbNwGQxMN54kT826utzfn_IDU/rs:fit/g:sm/q:40/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTE5OTM2/LTE1OTE4MTY5MDYt/OTM2OC5qcGVn.jpeg"
+    },
+    {
+      "name": "Rock Music Co. Ltd.",
+      "catno": "",
+      "entity_type": "21",
+      "entity_type_name": "Published By",
+      "id": 416590,
+      "resource_url": "https://api.discogs.com/labels/416590",
+      "thumbnail_url": ""
+    },
+    {
+      "name": "Old Barn Studios",
+      "catno": "",
+      "entity_type": "24",
+      "entity_type_name": "Engineered At",
+      "id": 269091,
+      "resource_url": "https://api.discogs.com/labels/269091",
+      "thumbnail_url": ""
+    },
+    {
+      "name": "TMC Studios",
+      "catno": "",
+      "entity_type": "24",
+      "entity_type_name": "Engineered At",
+      "id": 317427,
+      "resource_url": "https://api.discogs.com/labels/317427",
+      "thumbnail_url": ""
+    },
+    {
+      "name": "CBS, Haarlem",
+      "catno": "19-9228",
+      "entity_type": "17",
+      "entity_type_name": "Pressed By",
+      "id": 371454,
+      "resource_url": "https://api.discogs.com/labels/371454",
+      "thumbnail_url": "https://i.discogs.com/gleWXE-yTNOKUBLRHjOa0W4E_1A7-6MRwz6M379Nb10/rs:fit/g:sm/q:40/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTM3MTQ1/NC0xNDMyNTQzNjk5/LTg5MTQuanBlZw.jpeg"
+    }
+  ],
+  "formats": [
+    {
+      "name": "Vinyl",
+      "qty": "1",
+      "descriptions": [
+        "7\"",
+        "45 RPM",
+        "Single",
+        "Stereo"
+      ]
+    }
+  ],
+  "data_quality": "Complete and Correct",
+  "community": {
+    "have": 3587,
+    "want": 162,
+    "rating": {
+      "count": 275,
+      "average": 3.87
+    },
+    "submitter": {
+      "username": "newmusicmark",
+      "resource_url": "https://api.discogs.com/users/newmusicmark"
+    },
+    "contributors": [
+      {
+        "username": "newmusicmark",
+        "resource_url": "https://api.discogs.com/users/newmusicmark"
+      },
+      {
+        "username": "Sulphuric_Acid",
+        "resource_url": "https://api.discogs.com/users/Sulphuric_Acid"
+      },
+      {
+        "username": "sjcee",
+        "resource_url": "https://api.discogs.com/users/sjcee"
+      },
+      {
+        "username": "oofred",
+        "resource_url": "https://api.discogs.com/users/oofred"
+      },
+      {
+        "username": "jesus_butterfly",
+        "resource_url": "https://api.discogs.com/users/jesus_butterfly"
+      },
+      {
+        "username": "delysid",
+        "resource_url": "https://api.discogs.com/users/delysid"
+      },
+      {
+        "username": "Kater_Murr",
+        "resource_url": "https://api.discogs.com/users/Kater_Murr"
+      },
+      {
+        "username": "ivo6",
+        "resource_url": "https://api.discogs.com/users/ivo6"
+      },
+      {
+        "username": "Charon49",
+        "resource_url": "https://api.discogs.com/users/Charon49"
+      },
+      {
+        "username": "Stoof",
+        "resource_url": "https://api.discogs.com/users/Stoof"
+      },
+      {
+        "username": "NLK",
+        "resource_url": "https://api.discogs.com/users/NLK"
+      },
+      {
+        "username": "harderslg",
+        "resource_url": "https://api.discogs.com/users/harderslg"
+      },
+      {
+        "username": "Mrzigzac",
+        "resource_url": "https://api.discogs.com/users/Mrzigzac"
+      },
+      {
+        "username": "kotzkarnickel",
+        "resource_url": "https://api.discogs.com/users/kotzkarnickel"
+      },
+      {
+        "username": "DiscogsUpdateBot",
+        "resource_url": "https://api.discogs.com/users/DiscogsUpdateBot"
+      },
+      {
+        "username": "www-the-shop-fr",
+        "resource_url": "https://api.discogs.com/users/www-the-shop-fr"
+      },
+      {
+        "username": "teninchfan",
+        "resource_url": "https://api.discogs.com/users/teninchfan"
+      },
+      {
+        "username": "vellozet",
+        "resource_url": "https://api.discogs.com/users/vellozet"
+      },
+      {
+        "username": "Gone_Fishin",
+        "resource_url": "https://api.discogs.com/users/Gone_Fishin"
+      },
+      {
+        "username": "mr.dna",
+        "resource_url": "https://api.discogs.com/users/mr.dna"
+      },
+      {
+        "username": "MarkusRaute",
+        "resource_url": "https://api.discogs.com/users/MarkusRaute"
+      },
+      {
+        "username": "Holobiont",
+        "resource_url": "https://api.discogs.com/users/Holobiont"
+      },
+      {
+        "username": "seehaas",
+        "resource_url": "https://api.discogs.com/users/seehaas"
+      },
+      {
+        "username": "sebfact",
+        "resource_url": "https://api.discogs.com/users/sebfact"
+      },
+      {
+        "username": "Klanzky",
+        "resource_url": "https://api.discogs.com/users/Klanzky"
+      },
+      {
+        "username": "devotionaIie",
+        "resource_url": "https://api.discogs.com/users/devotionaIie"
+      },
+      {
+        "username": "Aerztefan",
+        "resource_url": "https://api.discogs.com/users/Aerztefan"
+      },
+      {
+        "username": "DJ_Dingo_DK",
+        "resource_url": "https://api.discogs.com/users/DJ_Dingo_DK"
+      },
+      {
+        "username": "jan_marian",
+        "resource_url": "https://api.discogs.com/users/jan_marian"
+      }
+    ],
+    "data_quality": "Complete and Correct",
+    "status": "Accepted"
+  },
+  "format_quantity": 1,
+  "date_added": "2004-04-18T08:25:10-07:00",
+  "date_changed": "2022-04-04T23:32:56-07:00",
+  "num_for_sale": 210,
+  "lowest_price": 0.25,
+  "master_id": 102934,
+  "master_url": "https://api.discogs.com/masters/102934",
+  "title": "Wot!",
+  "country": "Europe",
+  "released": "1982",
+  "notes": "\u2117 1982 A&M Records, Ltd. / \u00a9 1982 A&M Records Ltd.\n\nDistributed by CBS Records.\nPrinted in Holland. Made in Holland.\nPublished by Rock Music Company Limited.\n\nStrawberry Dross recorded in Sensible's bedroom on a Teac portostudio.\nStrawberry Dross sacked the boss rotten hat feed the cat.\n\nThe [url=http://www.discogs.com/Captain-Sensible-Wot/release/1265933]UK release[/url] was published also in a neutral label-cover.\n\"Wot\" taken from the album \"[url=http://www.discogs.com/Captain-Sensible-Women-And-Captains-First/master/94099]Women And Captain First[/url]\".",
+  "released_formatted": "1982",
+  "identifiers": [
+    {
+      "type": "Rights Society",
+      "value": "BIEM / STEMRA"
+    },
+    {
+      "type": "Price Code",
+      "value": "CB 111"
+    },
+    {
+      "type": "Label Code",
+      "value": "LC 0485",
+      "description": "On sleeve"
+    },
+    {
+      "type": "Label Code",
+      "value": "LC -0485",
+      "description": "On labels"
+    },
+    {
+      "type": "Other",
+      "value": "(CAPP 2)",
+      "description": "On labels"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "AMS 9228-1",
+      "description": "Label side A"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "AMS 9228-2",
+      "description": "Label side B"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1A-1 B NL",
+      "description": "Runout, variant 1: side A - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1B-1 C NL",
+      "description": "Runout, variant 1: side B - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1A-1 A NL",
+      "description": "Runout, variant 2: side A - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1B-1 A NL",
+      "description": "Runout, variant 2: side B - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1A-1 D NL",
+      "description": "Runout, variant 3: side A - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1B-1 B NL",
+      "description": "Runout, variant 3: side B - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1A-1 A NL",
+      "description": "Runout, variant 4: side A - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1B-1 B NL",
+      "description": "Runout, variant 4: side B - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1A-1 C NL",
+      "description": "Runout, variant 5: side A - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1B-1 C NL",
+      "description": "Runout, variant 5: side B - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1A-1 C NL",
+      "description": "Runout, variant 6: side A - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1B-1 NL B",
+      "description": "Runout, variant 6: side B - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1A-1 A NL",
+      "description": "Runout, variant 7: side A - stamped"
+    },
+    {
+      "type": "Matrix / Runout",
+      "value": "19-9228-1B-1 C NL",
+      "description": "Runout, variant 7: side B - stamped"
+    }
+  ],
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=cLE5b9umc90",
+      "title": "Captain Sensible - Wot !",
+      "description": "45T / 1982",
+      "duration": 185,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=9Q6YJ-r5SQs",
+      "title": "Captain Sensible - Wot (1983)",
+      "description": "Wot (1982), A&M -- UK No. 26\n\n#CaptainSensible",
+      "duration": 209,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=sw1czzqXhr8",
+      "title": "Captain Sensible - Wot",
+      "description": "Titre : Wot\nInterpr\u00e8te : Captain Sensible\nAnn\u00e9e : 1982\nAuteurs compositeurs : Ray Burns \nDur\u00e9e : 3 m 12 s\nLabel : AM Records",
+      "duration": 192,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=fj04rzn-Cxs",
+      "title": "Captain Sensible - Wot! Original 12 inch Version 1982",
+      "description": "Captain Sensible - Wot! Original 12 inch Version 1982",
+      "duration": 351,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=nsVCpdgtm-M",
+      "title": "Captain Sensible - Strawberry Dross/ Extended ( Audio Only)  1982",
+      "description": "B side of Wot.  A medley of allsorts from the same year his band The Damned brought out Strawberries. Listening to  it, you can hear a mini album of great ideas.",
+      "duration": 568,
+      "embed": true
+    }
+  ],
+  "genres": [
+    "Electronic",
+    "Rock",
+    "Funk / Soul"
+  ],
+  "styles": [
+    "New Wave",
+    "Disco"
+  ],
+  "tracklist": [
+    {
+      "position": "A",
+      "type_": "track",
+      "title": "Wot",
+      "duration": "3:22"
+    },
+    {
+      "position": "B",
+      "type_": "track",
+      "title": "Strawberry Dross",
+      "duration": "7:16"
+    }
+  ],
+  "extraartists": [
+    {
+      "name": "Andy Gierus",
+      "anv": "",
+      "join": "",
+      "role": "Engineer",
+      "tracks": "",
+      "id": 466847,
+      "resource_url": "https://api.discogs.com/artists/466847",
+      "thumbnail_url": "https://i.discogs.com/Xpi2ko6cdLxFrKfDEzIYsJWJ0yyTIJXE9ieJWhpfbSM/rs:fit/g:sm/q:40/h:293/w:227/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQ2Njg0/Ny0xNDMyMTAxMjU4/LTk1ODYuanBlZw.jpeg"
+    },
+    {
+      "name": "Matthew Fisher",
+      "anv": "",
+      "join": "",
+      "role": "Engineer",
+      "tracks": "",
+      "id": 297541,
+      "resource_url": "https://api.discogs.com/artists/297541",
+      "thumbnail_url": "https://i.discogs.com/AHBTuxqaR8062G6EDMcu1-SB7aDviux-Fn5oQboYvYw/rs:fit/g:sm/q:40/h:250/w:201/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTI5NzU0/MS0xNjc0MjM1MjUw/LTM1MjcuanBlZw.jpeg"
+    },
+    {
+      "name": "Mark Proctor",
+      "anv": "",
+      "join": "",
+      "role": "Engineer [Assistant]",
+      "tracks": "",
+      "id": 202859,
+      "resource_url": "https://api.discogs.com/artists/202859",
+      "thumbnail_url": ""
+    },
+    {
+      "name": "Janette Beckman",
+      "anv": "",
+      "join": "",
+      "role": "Photography By [Front]",
+      "tracks": "",
+      "id": 1907359,
+      "resource_url": "https://api.discogs.com/artists/1907359",
+      "thumbnail_url": "https://i.discogs.com/JwbWSzeTnQSvyoFfgOvw9xAVF1xbD3NZ3vAuMbM287E/rs:fit/g:sm/q:40/h:300/w:243/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTE5MDcz/NTktMTMwODU2NzUx/MS5qcGVn.jpeg"
+    },
+    {
+      "name": "Tony Mansfield",
+      "anv": "",
+      "join": "",
+      "role": "Producer",
+      "tracks": "",
+      "id": 52510,
+      "resource_url": "https://api.discogs.com/artists/52510",
+      "thumbnail_url": "https://i.discogs.com/SEu2-SXy3hqHh9gCyCBORrQhUNR0TZjE9KgGPC2VTTs/rs:fit/g:sm/q:40/h:230/w:219/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUyNTEw/LTE0NzYwNDg4NjIt/NjMwMi5qcGVn.jpeg"
+    },
+    {
+      "name": "Captain Sensible",
+      "anv": "",
+      "join": "",
+      "role": "Written-By",
+      "tracks": "",
+      "id": 52509,
+      "resource_url": "https://api.discogs.com/artists/52509",
+      "thumbnail_url": "https://i.discogs.com/SYuBaKK07-b0VU0YpUL5VwCoyt6e7ouAmydkJAO--gI/rs:fit/g:sm/q:40/h:450/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUyNTA5/LTEyMDI0NjYyOTIu/anBlZw.jpeg"
+    }
+  ],
+  "images": [
+    {
+      "type": "primary",
+      "uri": "https://i.discogs.com/FGX_S05LsjDc224LqIyOKXUGC1pRPEjhvACw4xqjYas/rs:fit/g:sm/q:90/h:610/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDgzNDUyNzEy/LTYwMTAuanBlZw.jpeg",
+      "resource_url": "https://i.discogs.com/FGX_S05LsjDc224LqIyOKXUGC1pRPEjhvACw4xqjYas/rs:fit/g:sm/q:90/h:610/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDgzNDUyNzEy/LTYwMTAuanBlZw.jpeg",
+      "uri150": "https://i.discogs.com/llh_qqUl1FEjQHPHn7y6LCFx5IZCwItr1F15ikM81K8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDgzNDUyNzEy/LTYwMTAuanBlZw.jpeg",
+      "width": 600,
+      "height": 610
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/RzjppgUGNap-C3wDH3Jm6BW7Ss5jxKteAenvXAPFPqE/rs:fit/g:sm/q:90/h:609/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDgzNDUyNzAy/LTY4NjkuanBlZw.jpeg",
+      "resource_url": "https://i.discogs.com/RzjppgUGNap-C3wDH3Jm6BW7Ss5jxKteAenvXAPFPqE/rs:fit/g:sm/q:90/h:609/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDgzNDUyNzAy/LTY4NjkuanBlZw.jpeg",
+      "uri150": "https://i.discogs.com/lKeQ_j-XKnQw_BhXdvqv6U-NcbEYx5OmPzZdg7Z3IkM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDgzNDUyNzAy/LTY4NjkuanBlZw.jpeg",
+      "width": 600,
+      "height": 609
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/c2M2sIIM316HD1B4BCcREJbCwJ8ul3OWfClOjoUgiLI/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDAxOTk1OTYx/LTk1MTYuanBlZw.jpeg",
+      "resource_url": "https://i.discogs.com/c2M2sIIM316HD1B4BCcREJbCwJ8ul3OWfClOjoUgiLI/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDAxOTk1OTYx/LTk1MTYuanBlZw.jpeg",
+      "uri150": "https://i.discogs.com/2SDkDQLwxBQTUgf41wwt0_9LQ5fxpS9-VV5FwB-fEqw/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDAxOTk1OTYx/LTk1MTYuanBlZw.jpeg",
+      "width": 600,
+      "height": 598
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/j3WWmWYdBpyPCez7Z7ZNKIkgg_XrVAKQPXR2yq9AnLw/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDAxOTk1OTY4/LTkzMzkuanBlZw.jpeg",
+      "resource_url": "https://i.discogs.com/j3WWmWYdBpyPCez7Z7ZNKIkgg_XrVAKQPXR2yq9AnLw/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDAxOTk1OTY4/LTkzMzkuanBlZw.jpeg",
+      "uri150": "https://i.discogs.com/ozd2CxT-lXEBFJy-zYo5Nd4eQSjvKtECqoXMFOCGI0M/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDAxOTk1OTY4/LTkzMzkuanBlZw.jpeg",
+      "width": 600,
+      "height": 593
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/eSPGegp6IWET251rDd3lrFYKl7PnHhJratyBYMqdycI/rs:fit/g:sm/q:90/h:386/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNjQ5MTQwMDY1/LTI1OTAuanBlZw.jpeg",
+      "resource_url": "https://i.discogs.com/eSPGegp6IWET251rDd3lrFYKl7PnHhJratyBYMqdycI/rs:fit/g:sm/q:90/h:386/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNjQ5MTQwMDY1/LTI1OTAuanBlZw.jpeg",
+      "uri150": "https://i.discogs.com/IZJRp4S0doyUl55A34G3SpKri-vpKrQHHtNeMIjWVOo/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNjQ5MTQwMDY1/LTI1OTAuanBlZw.jpeg",
+      "width": 600,
+      "height": 386
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/gesmtjESiZPjq1DpMinENz95onqKBF3oIxcQ8KbF-ts/rs:fit/g:sm/q:90/h:239/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNjQ5MTQwMDY1/LTM1NzEuanBlZw.jpeg",
+      "resource_url": "https://i.discogs.com/gesmtjESiZPjq1DpMinENz95onqKBF3oIxcQ8KbF-ts/rs:fit/g:sm/q:90/h:239/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNjQ5MTQwMDY1/LTM1NzEuanBlZw.jpeg",
+      "uri150": "https://i.discogs.com/H1heFYp-j6zXHNOqANbCBBweJiRmxmrT_kpPUZgqnVI/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNjQ5MTQwMDY1/LTM1NzEuanBlZw.jpeg",
+      "width": 600,
+      "height": 239
+    }
+  ],
+  "thumb": "https://i.discogs.com/llh_qqUl1FEjQHPHn7y6LCFx5IZCwItr1F15ikM81K8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDgzNDUyNzEy/LTYwMTAuanBlZw.jpeg",
+  "estimated_weight": 60,
+  "blocked_from_sale": false
+}

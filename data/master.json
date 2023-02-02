@@ -1,0 +1,133 @@
+{
+  "id": 102934,
+  "main_release": 10991684,
+  "most_recent_release": 10991684,
+  "resource_url": "https://api.discogs.com/masters/102934",
+  "uri": "https://www.discogs.com/master/102934-Captain-Sensible-Wot",
+  "versions_url": "https://api.discogs.com/masters/102934/versions",
+  "main_release_url": "https://api.discogs.com/releases/10991684",
+  "most_recent_release_url": "https://api.discogs.com/releases/10991684",
+  "num_for_sale": 687,
+  "lowest_price": 0.27,
+  "images": [
+    {
+      "type": "primary",
+      "uri": "https://i.discogs.com/y0-C9F2Vi8OELYA8E-YFHJJ-7Yskl04fzbE5AVCeBdQ/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjgtMjg2Ny5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/y0-C9F2Vi8OELYA8E-YFHJJ-7Yskl04fzbE5AVCeBdQ/rs:fit/g:sm/q:90/h:597/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjgtMjg2Ny5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/W7zseYOrXIoxqyBNwe6u52rICHCVRUVi9RhwKtFwrv8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjgtMjg2Ny5qcGVn.jpeg",
+      "width": 600,
+      "height": 597
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/Nltl4GXWv6c4Ptxz30ksE7wVvWwhwlS7YT2DrsXoKO0/rs:fit/g:sm/q:90/h:603/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NzAtNjg2Ni5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/Nltl4GXWv6c4Ptxz30ksE7wVvWwhwlS7YT2DrsXoKO0/rs:fit/g:sm/q:90/h:603/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NzAtNjg2Ni5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/POYh_Bqs2B31TGCRsRJtZ1A2zVUPqfX0_j-0JY2KcX8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NzAtNjg2Ni5qcGVn.jpeg",
+      "width": 600,
+      "height": 603
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/dT8pdvgDIeFh9QRvfJAHNVBdBxfS3wWQ1mJSXpiV7Ik/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjUtMjM2MC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/dT8pdvgDIeFh9QRvfJAHNVBdBxfS3wWQ1mJSXpiV7Ik/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjUtMjM2MC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/AGSYwCylIBsPhT3h9ipLXVEpPbP6vldeEIclgnslYBg/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjUtMjM2MC5qcGVn.jpeg",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "https://i.discogs.com/bgBIoe6neC4WZfrMlQhOZ0_moYzhBmWbxj3G3vEnmkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjMtMjE3OC5qcGVn.jpeg",
+      "resource_url": "https://i.discogs.com/bgBIoe6neC4WZfrMlQhOZ0_moYzhBmWbxj3G3vEnmkA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjMtMjE3OC5qcGVn.jpeg",
+      "uri150": "https://i.discogs.com/bJZ7QQLvGehuu27wohXsUH2gK5CAU5f5vpK1VQ4NXT0/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjMtMjE3OC5qcGVn.jpeg",
+      "width": 600,
+      "height": 600
+    }
+  ],
+  "genres": [
+    "Rock",
+    "Pop"
+  ],
+  "styles": [
+    "New Wave",
+    "Pop Rock",
+    "Disco"
+  ],
+  "year": 1982,
+  "tracklist": [
+    {
+      "position": "A",
+      "type_": "track",
+      "title": "Wot",
+      "extraartists": [
+        {
+          "name": "Dolly Mixture",
+          "anv": "Dolly's",
+          "join": "",
+          "role": "Performer [Recorded With]",
+          "tracks": "",
+          "id": 476840,
+          "resource_url": "https://api.discogs.com/artists/476840",
+          "thumbnail_url": "https://i.discogs.com/RfAK_oTPKA2c5d0xrFCxXSZDU7vaHuBxk899c8wA82M/rs:fit/g:sm/q:40/h:891/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTQ3Njg0/MC0xNjQxMTY3NjU1/LTQxNzUuanBlZw.jpeg"
+        }
+      ],
+      "duration": "3:20"
+    },
+    {
+      "position": "B",
+      "type_": "track",
+      "title": "Strawberry Dross",
+      "duration": "6:06"
+    }
+  ],
+  "artists": [
+    {
+      "name": "Captain Sensible",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 52509,
+      "resource_url": "https://api.discogs.com/artists/52509",
+      "thumbnail_url": "https://i.discogs.com/SYuBaKK07-b0VU0YpUL5VwCoyt6e7ouAmydkJAO--gI/rs:fit/g:sm/q:40/h:450/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTUyNTA5/LTEyMDI0NjYyOTIu/anBlZw.jpeg"
+    }
+  ],
+  "title": "Wot!",
+  "data_quality": "Correct",
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=cLE5b9umc90",
+      "title": "Captain Sensible - Wot !",
+      "description": "45T / 1982",
+      "duration": 185,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=9Q6YJ-r5SQs",
+      "title": "Captain Sensible - Wot (1983)",
+      "description": "Wot (1982), A&M -- UK No. 26\n\n#CaptainSensible",
+      "duration": 209,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=sw1czzqXhr8",
+      "title": "Captain Sensible - Wot",
+      "description": "Titre : Wot\nInterpr\u00e8te : Captain Sensible\nAnn\u00e9e : 1982\nAuteurs compositeurs : Ray Burns \nDur\u00e9e : 3 m 12 s\nLabel : AM Records",
+      "duration": 192,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=fj04rzn-Cxs",
+      "title": "Captain Sensible - Wot! Original 12 inch Version 1982",
+      "description": "Captain Sensible - Wot! Original 12 inch Version 1982",
+      "duration": 351,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=nsVCpdgtm-M",
+      "title": "Captain Sensible - Strawberry Dross/ Extended ( Audio Only)  1982",
+      "description": "B side of Wot.  A medley of allsorts from the same year his band The Damned brought out Strawberries. Listening to  it, you can hear a mini album of great ideas.",
+      "duration": 568,
+      "embed": true
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+{
+  "pagination": {
+    "page": 1,
+    "pages": 1,
+    "per_page": 50,
+    "items": 16,
+    "urls": {}
+  },
+  "filters": {
+    "applied": {
+      "format": [
+        "7\""
+      ]
+    },
+    "available": {
+      "label": {
+        "A&M Records": 16,
+        "A&M Records Ltd.": 9,
+        "Rock Music Co. Ltd.": 7,
+        "Cbs Disques": 3,
+        "Disco France": 3,
+        "Old Barn Studios": 3,
+        "Discos Cbs, S.A., Madrid": 2,
+        "France Imprimerie Sorel": 2,
+        "Matthews": 2,
+        "Montreuil Offset": 2,
+        "Offset Alg, S.A.": 2,
+        "Tmc Studios": 2,
+        "A&M Records, Inc.": 1,
+        "Anglo Rock": 1,
+        "Cbs Portugal": 1,
+        "Cbs Pressing Plant, Aston Clinton": 1,
+        "Cbs Records": 1,
+        "Cbs, Haarlem": 1,
+        "Columbia Records Pressing Plant, Terre Haute": 1,
+        "Festival Records (Nz) Ltd.": 1,
+        "Festival Records Pty. Ltd.": 1,
+        "The Town House": 1
+      },
+      "country": {
+        "France": 4,
+        "UK": 3,
+        "Spain": 2,
+        "Australia": 1,
+        "Europe": 1,
+        "Ireland": 1,
+        "Italy": 1,
+        "New Zealand": 1,
+        "Portugal": 1,
+        "US": 1
+      },
+      "released": {
+        "1982": 16
+      }
+    }
+  },
+  "filter_facets": [
+    {
+      "title": "Label",
+      "id": "label",
+      "values": [
+        {
+          "title": "A&M Records",
+          "value": "A%26M+Records",
+          "count": 16
+        },
+        {
+          "title": "A&M Records Ltd.",
+          "value": "A%26M+Records+Ltd.",
+          "count": 9
+        },
+        {
+          "title": "Rock Music Co. Ltd.",
+          "value": "Rock+Music+Co.+Ltd.",
+          "count": 7
+        },
+        {
+          "title": "Cbs Disques",
+          "value": "Cbs+Disques",
+          "count": 3
+        },
+        {
+          "title": "Disco France",
+          "value": "Disco+France",
+          "count": 3
+        },
+        {
+          "title": "Old Barn Studios",
+          "value": "Old+Barn+Studios",
+          "count": 3
+        },
+        {
+          "title": "Discos Cbs, S.A., Madrid",
+          "value": "Discos+Cbs%2C+S.A.%2C+Madrid",
+          "count": 2
+        },
+        {
+          "title": "France Imprimerie Sorel",
+          "value": "France+Imprimerie+Sorel",
+          "count": 2
+        },
+        {
+          "title": "Matthews",
+          "value": "Matthews",
+          "count": 2
+        },
+        {
+          "title": "Montreuil Offset",
+          "value": "Montreuil+Offset",
+          "count": 2
+        },
+        {
+          "title": "Offset Alg, S.A.",
+          "value": "Offset+Alg%2C+S.A.",
+          "count": 2
+        },
+        {
+          "title": "Tmc Studios",
+          "value": "Tmc+Studios",
+          "count": 2
+        },
+        {
+          "title": "A&M Records, Inc.",
+          "value": "A%26M+Records%2C+Inc.",
+          "count": 1
+        },
+        {
+          "title": "Anglo Rock",
+          "value": "Anglo+Rock",
+          "count": 1
+        },
+        {
+          "title": "Cbs Portugal",
+          "value": "Cbs+Portugal",
+          "count": 1
+        },
+        {
+          "title": "Cbs Pressing Plant, Aston Clinton",
+          "value": "Cbs+Pressing+Plant%2C+Aston+Clinton",
+          "count": 1
+        },
+        {
+          "title": "Cbs Records",
+          "value": "Cbs+Records",
+          "count": 1
+        },
+        {
+          "title": "Cbs, Haarlem",
+          "value": "Cbs%2C+Haarlem",
+          "count": 1
+        },
+        {
+          "title": "Columbia Records Pressing Plant, Terre Haute",
+          "value": "Columbia+Records+Pressing+Plant%2C+Terre+Haute",
+          "count": 1
+        },
+        {
+          "title": "Festival Records (Nz) Ltd.",
+          "value": "Festival+Records+%28Nz%29+Ltd.",
+          "count": 1
+        },
+        {
+          "title": "Festival Records Pty. Ltd.",
+          "value": "Festival+Records+Pty.+Ltd.",
+          "count": 1
+        },
+        {
+          "title": "The Town House",
+          "value": "The+Town+House",
+          "count": 1
+        }
+      ],
+      "allows_multiple_values": true
+    },
+    {
+      "title": "Country",
+      "id": "country",
+      "values": [
+        {
+          "title": "France",
+          "value": "France",
+          "count": 4
+        },
+        {
+          "title": "UK",
+          "value": "UK",
+          "count": 3
+        },
+        {
+          "title": "Spain",
+          "value": "Spain",
+          "count": 2
+        },
+        {
+          "title": "Australia",
+          "value": "Australia",
+          "count": 1
+        },
+        {
+          "title": "Europe",
+          "value": "Europe",
+          "count": 1
+        },
+        {
+          "title": "Ireland",
+          "value": "Ireland",
+          "count": 1
+        },
+        {
+          "title": "Italy",
+          "value": "Italy",
+          "count": 1
+        },
+        {
+          "title": "New Zealand",
+          "value": "New+Zealand",
+          "count": 1
+        },
+        {
+          "title": "Portugal",
+          "value": "Portugal",
+          "count": 1
+        },
+        {
+          "title": "US",
+          "value": "US",
+          "count": 1
+        }
+      ],
+      "allows_multiple_values": true
+    },
+    {
+      "title": "Released",
+      "id": "released",
+      "values": [
+        {
+          "title": "1982",
+          "value": "1982",
+          "count": 16
+        }
+      ],
+      "allows_multiple_values": true
+    }
+  ],
+  "versions": [
+    {
+      "id": 246348,
+      "label": "A&M Records",
+      "country": "Europe",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", 45 RPM, Single, Stereo",
+      "catno": "AMS 9228",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/246348",
+      "thumb": "https://i.discogs.com/llh_qqUl1FEjQHPHn7y6LCFx5IZCwItr1F15ikM81K8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0NjM0/OC0xNDgzNDUyNzEy/LTYwMTAuanBlZw.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 162,
+          "in_collection": 3587
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 1
+        }
+      }
+    },
+    {
+      "id": 10477758,
+      "label": "A&M Records",
+      "country": "France",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", 45 RPM, Single, Stereo",
+      "catno": "AMS 9228",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/10477758",
+      "thumb": "https://i.discogs.com/n1McfaZKYySxj7bRN3Wo-nQgickV5UgVVYuq07Gdns0/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNDc3/NzU4LTE1MzAzOTI2/NDMtNzMzNS5qcGVn.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 49,
+          "in_collection": 187
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 3975866,
+      "label": "A&M Records",
+      "country": "Portugal",
+      "title": "Wot! / Croydon",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", Single",
+      "catno": "AMS 9237",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/3975866",
+      "thumb": "https://i.discogs.com/h45HvMdvjbvIIDB8CdTbpILIehS7uT5vlmoPXJceINA/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM5NzU4/NjYtMTM1MTExMjcy/OC0zNjkxLmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 43,
+          "in_collection": 47
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 3975653,
+      "label": "A&M Records",
+      "country": "Australia",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", Single, 45 RPM",
+      "catno": "K-8857",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/3975653",
+      "thumb": "https://i.discogs.com/FhvZ705CU2lusekUbTz2zhQMi_YzehUrKXpaOLcd8Po/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM5NzU2/NTMtMTM1MTEwNzg0/Ni03MDkxLmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 56,
+          "in_collection": 144
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 3533610,
+      "label": "A&M Records",
+      "country": "New Zealand",
+      "title": "Wot",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", Single",
+      "catno": "K8857",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/3533610",
+      "thumb": "https://i.discogs.com/kqebxie4UiR9sQ_ANZyRLzIaYVWkHETYfNwlISJygTY/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM1MzM2/MTAtMTU4OTM2Mjgy/OS02MTAwLmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 50,
+          "in_collection": 28
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 10991684,
+      "label": "A&M Records",
+      "country": "UK",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", Single, 45 RPM",
+      "catno": "CAP 2",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/10991684",
+      "thumb": "https://i.discogs.com/W7zseYOrXIoxqyBNwe6u52rICHCVRUVi9RhwKtFwrv8/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwOTkx/Njg0LTE1MDc4MDk1/NjgtMjg2Ny5qcGVn.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 66,
+          "in_collection": 263
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 10189209,
+      "label": "A&M Records",
+      "country": "France",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", 45 RPM, Single",
+      "catno": "AMS 9228",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/10189209",
+      "thumb": "https://i.discogs.com/N7EHSWCvnry8kPGiOiC6Ib11gqLm3Xfks-IH7JeRtPU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMTg5/MjA5LTE0OTMxMDc4/MDItNjYwNS5qcGVn.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 48,
+          "in_collection": 78
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 3356894,
+      "label": "A&M Records",
+      "country": "Spain",
+      "title": "Wot",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", 45 RPM, Single",
+      "catno": "AMS 9228",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/3356894",
+      "thumb": "https://i.discogs.com/FeYtv8bMFAlhz_Xozkc_H85MNDKwk67G_Dnwn0JSaSc/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMzNTY4/OTQtMTM5MTcwNTg4/My05MzgyLmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 56,
+          "in_collection": 130
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 5702933,
+      "label": "A&M Records",
+      "country": "France",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", Single, 45 RPM",
+      "catno": "AMS 9228",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/5702933",
+      "thumb": "https://i.discogs.com/YAhxCmEk002zkcPZlvqhLG5jZHsxAdMPsxglAh88xgg/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU3MDI5/MzMtMTQxOTY3ODk2/OC0xMDI3LmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 55,
+          "in_collection": 205
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 3975186,
+      "label": "A&M Records",
+      "country": "UK",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", 45 RPM, Single, Promo",
+      "catno": "CAP 2",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/3975186",
+      "thumb": "https://i.discogs.com/-FNCO7wiozUgNIM9cjRJhsFOyS6cWZltHpj-5rI0GRQ/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM5NzUx/ODYtMTM1MTA5Njc3/My05OTU5LmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 55,
+          "in_collection": 27
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 9376629,
+      "label": "A&M Records",
+      "country": "Spain",
+      "title": "Wot",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", 45 RPM, Single Sided, Single, Promo",
+      "catno": "AMS 9228",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/9376629",
+      "thumb": "https://i.discogs.com/KTtJ85NEAn-h3tX6iFipCdVd0cDBGcdo4wevF0F7-e4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkzNzY2/MjktMTU1MTA5Mzg3/Ny00MTM2LmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 47,
+          "in_collection": 11
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 3975945,
+      "label": "A&M Records",
+      "country": "US",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", Single, Promo",
+      "catno": "2509-S",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/3975945",
+      "thumb": "https://i.discogs.com/ylLhkfMVbuLsuS50KVmJANo-dVILAzGDKZjuQ1Pg41A/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM5NzU5/NDUtMTQ5NTA0OTM3/NC00NzY0LmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 67,
+          "in_collection": 33
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 8271330,
+      "label": "A&M Records",
+      "country": "Ireland",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", 45 RPM, Single",
+      "catno": "CAP 2",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/8271330",
+      "thumb": "https://i.discogs.com/eNaHZmlqI1mk0h83uljajdpKYhDY8GyG5gesN8WYmTM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNzEz/MzAtMTQ1ODM4Mzc4/Mi0zNTEzLmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 51,
+          "in_collection": 24
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 1265933,
+      "label": "A&M Records",
+      "country": "UK",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", Single, 45 RPM",
+      "catno": "CAP 2",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/1265933",
+      "thumb": "https://i.discogs.com/R_UkFaLN_3m8xKma1gqpe6YyHYD5u6AipOJ7cuaFibk/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNjU5/MzMtMTI5MDg5MTA0/Mi5qcGVn.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 91,
+          "in_collection": 437
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 15607721,
+      "label": "A&M Records",
+      "country": "Italy",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", Single, 45 RPM",
+      "catno": "AMS 9245",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/15607721",
+      "thumb": "https://i.discogs.com/CZQxolT6yRe7-US2I_PfK_H05fF3jkNatgdYR2oMg1c/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE1NjA3/NzIxLTE2MzkwNDY5/MjItNDQ0OC5qcGVn.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 21,
+          "in_collection": 40
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    },
+    {
+      "id": 1405162,
+      "label": "A&M Records",
+      "country": "France",
+      "title": "Wot!",
+      "major_formats": [
+        "Vinyl"
+      ],
+      "format": "7\", 45 RPM, Single, Stereo",
+      "catno": "AMS 9228",
+      "released": "1982",
+      "status": "Accepted",
+      "resource_url": "https://api.discogs.com/releases/1405162",
+      "thumb": "https://i.discogs.com/69qk2zyyMLQRVCvOWJ6j4ai5Atc-o6z9zbOLATsPFj0/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0MDUx/NjItMTM3OTQ1MzQ1/Mi00Nzc2LmpwZWc.jpeg",
+      "stats": {
+        "community": {
+          "in_wantlist": 70,
+          "in_collection": 675
+        },
+        "user": {
+          "in_wantlist": 0,
+          "in_collection": 0
+        }
+      }
+    }
+  ]
+}
