@@ -12,9 +12,13 @@ import {
   NGridItem,
   NH2,
   NH3,
+  NSpin,
 } from "naive-ui";
 const message = useMessage();
 const inputString = ref();
+let searchingMasters = ref(false);
+let searchingVersions = ref(false);
+let searchingDetails = ref(false);
 
 const masterItems = ref<Array<MasterItem>>([
   { id: -1, title: "First do a search" },
@@ -71,17 +75,26 @@ const searchMasterRelease = () => {
   const fetchUrl =
     "https://api.discogs.com/database/search?format=7%22&type=master&q=" +
     inputString.value;
-  fetchData(fetchUrl).then((data: any) => (masterItems.value = data.results));
+  searchingMasters.value = true;
+  fetchData(fetchUrl)
+    .then((data: any) => (masterItems.value = data.results))
+    .then(() => (searchingMasters.value = false));
 };
 
 const searchVersion = (masterId: number) => {
   const fetchUrl = `https://api.discogs.com/masters/${masterId}/versions?format=7%22`;
-  fetchData(fetchUrl).then((data: any) => (versionItems.value = data.versions));
+  searchingVersions.value = true;
+  fetchData(fetchUrl)
+    .then((data: any) => (versionItems.value = data.versions))
+    .then(() => (searchingVersions.value = false));
 };
 
 const searchReleases = (releaseId: number) => {
   const fetchUrl = `https://api.discogs.com/releases/${releaseId}`;
-  fetchData(fetchUrl).then((data: any) => (releaseDetails.value = data));
+  searchingDetails.value = true;
+  fetchData(fetchUrl)
+    .then((data: any) => (releaseDetails.value = data))
+    .then(() => (searchingDetails.value = false));
 };
 </script>
 
@@ -100,8 +113,10 @@ const searchReleases = (releaseId: number) => {
       <n-layout position="absolute" style="top: 64px; bottom: 64px">
         <n-layout-content content-style="padding: 12px">
           <n-grid cols="3" x-gap="12">
-            <n-grid-item
-              ><n-h3>Master</n-h3>
+            <n-grid-item>
+              <n-spin :show="searchingMasters">
+                <n-h3>Master</n-h3>
+              </n-spin>
               <div
                 v-for="item in masterItems"
                 :key="item.id"
@@ -117,8 +132,10 @@ const searchReleases = (releaseId: number) => {
                 {{ item.title }}
               </div></n-grid-item
             >
-            <n-grid-item
-              ><n-h3>Version</n-h3>
+            <n-grid-item>
+              <n-spin :show="searchingVersions">
+                <n-h3>Version</n-h3>
+              </n-spin>
               <div
                 v-for="item in versionItems"
                 :key="item.id"
@@ -138,8 +155,10 @@ const searchReleases = (releaseId: number) => {
                 {{ item.title }}
               </div>
             </n-grid-item>
-            <n-grid-item
-              ><n-h3>Details</n-h3>
+            <n-grid-item>
+              <n-spin :show="searchingDetails">
+                <n-h3>Details</n-h3>
+              </n-spin>
               <div v-if="releaseDetails">
                 <n-h2>
                   {{ releaseDetails.artists_sort }}
