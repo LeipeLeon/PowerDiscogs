@@ -29,6 +29,7 @@ interface Image {
 interface MasterItem {
   id: number;
   title: string;
+  selected?: boolean;
   thumb?: string;
   main_release?: number;
   most_recent_release?: number;
@@ -60,6 +61,7 @@ interface MasterItem {
 interface Version {
   id: number;
   title: string;
+  selected?: boolean;
   label?: string;
   country?: string;
   major_formats?: string[];
@@ -84,6 +86,7 @@ interface Version {
 interface Release {
   id: number;
   title: string;
+  selected?: boolean;
   thumb?: string;
   artists_sort?: string;
   num_for_sale?: number;

@@ -33,13 +33,19 @@ const handleKeyUp = (e: any) => {
 };
 const handleMasterClick = (e: any) => {
   e.preventDefault();
-  console.log("handleMasterClick", e.target.dataset.id);
-  searchVersion(e.target.dataset.id);
+  const selectedMasterItemId = +e.target.dataset.id;
+  masterItems.value.forEach((masterItem) => {
+    masterItem.selected = masterItem.id === selectedMasterItemId;
+  });
+  searchVersion(selectedMasterItemId);
 };
 const handleReleaseClick = (e: any) => {
   e.preventDefault();
-  console.log("handleReleaseClick", e.target.dataset.id);
-  searchReleases(e.target.dataset.id);
+  const selectedReleaseItemId = +e.target.dataset.id;
+  versionItems.value.forEach((versionItem) => {
+    versionItem.selected = versionItem.id === selectedReleaseItemId;
+  });
+  searchReleases(selectedReleaseItemId);
 };
 
 const requestHeaders = {
@@ -99,6 +105,7 @@ const searchReleases = (releaseId: number) => {
                 v-for="item in masterItems"
                 :key="item.id"
                 class="master-item"
+                :class="[item.selected ? 'selected' : '']"
                 @click="handleMasterClick"
                 :data-id="item.id"
               >
@@ -115,15 +122,13 @@ const searchReleases = (releaseId: number) => {
                 v-for="item in versionItems"
                 :key="item.id"
                 class="release-item"
+                :class="[
+                  item.selected ? 'selected' : '',
+                  item.stats?.user.in_collection ? 'in_collection' : '',
+                  item.stats?.user.in_wantlist ? 'in_wantlist' : '',
+                ]"
                 @click="handleReleaseClick"
                 :data-id="item.id"
-                :class="
-                  item.stats?.user.in_collection
-                    ? 'in_collection'
-                    : '' && item.stats?.user.in_wantlist
-                    ? 'in_wantlist'
-                    : ''
-                "
               >
                 <img
                   :src="item.thumb"
@@ -173,5 +178,8 @@ const searchReleases = (releaseId: number) => {
 }
 .in_wantlist {
   background-color: red !important;
+}
+.selected {
+  background-color: blue !important;
 }
 </style>
