@@ -21,19 +21,19 @@ const releaseItems = ref([{ id: -1, title: "No master selected" }]);
 const releaseDetails = ref([{ id: -1, title: "No release selected" }]);
 
 const message = useMessage();
-const handleKeyUp = (e) => {
+const handleKeyUp = (e: any) => {
   if (e.key === "Enter") {
     // send request
     searchMasterRelease();
     message.info("[Event keyup]");
   }
 };
-const handleMasterClick = (e) => {
+const handleMasterClick = (e: any) => {
   e.preventDefault();
   console.log("handleMasterClick", e.target.dataset.id);
   searchReleaseItems(e.target.dataset.id);
 };
-const handleReleaseClick = (e) => {
+const handleReleaseClick = (e: any) => {
   e.preventDefault();
   console.log("handleReleaseClick", e.target.dataset.id);
   searchReleaseDetails(e.target.dataset.id);
@@ -57,7 +57,7 @@ const searchMasterRelease = () => {
   console.log("masterItems", masterItems);
 };
 
-const searchReleaseItems = (masterId) => {
+const searchReleaseItems = (masterId: number) => {
   const fetchUrl = `https://api.discogs.com/masters/${masterId}/versions?format=7%22`;
 
   fetch(fetchUrl, {
@@ -73,7 +73,7 @@ const searchReleaseItems = (masterId) => {
   console.log("releaseItems", releaseItems);
 };
 
-const searchReleaseDetails = (releaseId) => {
+const searchReleaseDetails = (releaseId: number) => {
   const fetchUrl = `https://api.discogs.com/releases/${releaseId}`;
 
   fetch(fetchUrl, {
