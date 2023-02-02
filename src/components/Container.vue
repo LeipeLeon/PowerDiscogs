@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-
+import type { MasterItem, Version, Release } from "./interfaces";
 import {
   NLayout,
   NLayoutHeader,
@@ -14,39 +14,14 @@ import {
   NH3,
 } from "naive-ui";
 
-interface MasterItem {
-  id: number;
-  title: string;
-  thumb?: string;
-}
-interface ReleaseItem {
-  id: number;
-  title: string;
-  thumb?: string;
-  stats?: {
-    user: {
-      in_collection: number;
-      in_wantlist: number;
-    };
-  };
-}
-interface ReleaseDetail {
-  id: number;
-  title: string;
-  thumb?: string;
-  artists_sort?: string;
-  num_for_sale?: number;
-  lowest_price?: number;
-}
-
 const inputString = ref();
 const masterItems = ref<Array<MasterItem>>([
   { id: -1, title: "First do a search" },
 ]);
-const releaseItems = ref<Array<ReleaseItem>>([
+const versionItems = ref<Array<Version>>([
   { id: -1, title: "No master selected" },
 ]);
-const releaseDetails = ref<ReleaseDetail>();
+const releaseDetails = ref<Release>();
 
 const message = useMessage();
 const handleKeyUp = (e: any) => {
@@ -59,12 +34,12 @@ const handleKeyUp = (e: any) => {
 const handleMasterClick = (e: any) => {
   e.preventDefault();
   console.log("handleMasterClick", e.target.dataset.id);
-  searchReleaseItems(e.target.dataset.id);
+  searchVersion(e.target.dataset.id);
 };
 const handleReleaseClick = (e: any) => {
   e.preventDefault();
   console.log("handleReleaseClick", e.target.dataset.id);
-  searchReleaseDetails(e.target.dataset.id);
+  searchReleases(e.target.dataset.id);
 };
 
 const requestHeaders = {
@@ -90,13 +65,13 @@ const searchMasterRelease = () => {
   console.log("masterItems", masterItems);
 };
 
-const searchReleaseItems = (masterId: number) => {
+const searchVersion = (masterId: number) => {
   const fetchUrl = `https://api.discogs.com/masters/${masterId}/versions?format=7%22`;
-  fetchData(fetchUrl, (data: any) => (releaseItems.value = data.versions));
-  console.log("releaseItems", releaseItems);
+  fetchData(fetchUrl, (data: any) => (versionItems.value = data.versions));
+  console.log("versionItems", versionItems);
 };
 
-const searchReleaseDetails = (releaseId: number) => {
+const searchReleases = (releaseId: number) => {
   const fetchUrl = `https://api.discogs.com/releases/${releaseId}`;
   fetchData(fetchUrl, (data: any) => (releaseDetails.value = data));
   console.log("releaseDetails", releaseDetails);
@@ -137,7 +112,7 @@ const searchReleaseDetails = (releaseId: number) => {
             <n-grid-item
               ><n-h3>Version</n-h3>
               <div
-                v-for="item in releaseItems"
+                v-for="item in versionItems"
                 :key="item.id"
                 class="release-item"
                 @click="handleReleaseClick"
