@@ -67,7 +67,12 @@ const handleReleaseClick = (e: any) => {
   console.log("handleReleaseClick", e.target.dataset.id);
   searchReleaseDetails(e.target.dataset.id);
 };
-// Search Master Release
+
+const requestHeaders = {
+  Authorization: `Discogs token=${import.meta.env.VITE_DISCOGS_API_TOKEN}`,
+  "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
+};
+
 const searchMasterRelease = () => {
   const fetchUrl =
     "https://api.discogs.com/database/search?format=7%22&type=master&q=" +
@@ -75,10 +80,7 @@ const searchMasterRelease = () => {
 
   fetch(fetchUrl, {
     method: "GET",
-    headers: {
-      Authorization: `Discogs token=${import.meta.env.VITE_DISCOGS_API_TOKEN}`,
-      "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
-    },
+    headers: requestHeaders,
   })
     .then((res) => res.json())
     .then((data) => (masterItems.value = data.results))
@@ -91,10 +93,7 @@ const searchReleaseItems = (masterId: number) => {
 
   fetch(fetchUrl, {
     method: "GET",
-    headers: {
-      Authorization: `Discogs token=${import.meta.env.VITE_DISCOGS_API_TOKEN}`,
-      "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
-    },
+    headers: requestHeaders,
   })
     .then((res) => res.json())
     .then((data) => (releaseItems.value = data.versions))
@@ -107,10 +106,7 @@ const searchReleaseDetails = (releaseId: number) => {
 
   fetch(fetchUrl, {
     method: "GET",
-    headers: {
-      Authorization: `Discogs token=${import.meta.env.VITE_DISCOGS_API_TOKEN}`,
-      "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
-    },
+    headers: requestHeaders,
   })
     .then((res) => res.json())
     .then((data) => (releaseDetails.value = data))
