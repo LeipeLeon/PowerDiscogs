@@ -3,7 +3,6 @@ import { ref } from "vue";
 
 import {
   NLayout,
-  NSpace,
   NLayoutHeader,
   NLayoutContent,
   NLayoutFooter,
@@ -40,7 +39,7 @@ interface ReleaseDetail {
   lowest_price?: number;
 }
 
-const inputString = ref(null);
+const inputString = ref();
 const masterItems = ref<Array<MasterItem>>([
   { id: -1, title: "First do a search" },
 ]);
