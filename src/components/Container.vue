@@ -13,6 +13,9 @@ import {
   NH2,
   NH3,
   NSpin,
+  NList,
+  NListItem,
+  NThing,
 } from "naive-ui";
 const message = useMessage();
 const inputString = ref();
@@ -115,43 +118,57 @@ const searchReleases = (releaseId: number) => {
               <n-spin :show="searchingMasters">
                 <n-h3>Master</n-h3>
               </n-spin>
-              <div
-                v-for="item in masterItems"
-                :key="item.id"
-                class="master-item"
-                :class="[item.selected ? 'selected' : '']"
-                @click.prevent="handleMasterClick(+item.id)"
-                :data-id="item.id"
-              >
-                <img
-                  :src="item.thumb"
-                  style="max-height: 50px; vertical-align: middle"
-                />
-                {{ item.title }}
-              </div></n-grid-item
-            >
+              <n-list hoverable clickable>
+                <n-list-item
+                  v-for="item in masterItems"
+                  :key="item.id"
+                  class="master-item"
+                  :class="[item.selected ? 'selected' : '']"
+                  @click.prevent="handleMasterClick(+item.id)"
+                  :data-id="item.id"
+                >
+                  <template #prefix>
+                    <img
+                      :src="item?.thumb"
+                      style="max-height: 50px; vertical-align: middle"
+                    />
+                  </template>
+                  <template #suffix>
+                    <div v-if="item.selected">>>></div>
+                  </template>
+                  <n-thing :title="item.title"> </n-thing>
+                </n-list-item>
+              </n-list>
+            </n-grid-item>
             <n-grid-item>
               <n-spin :show="searchingVersions">
                 <n-h3>Version</n-h3>
               </n-spin>
-              <div
-                v-for="item in versionItems"
-                :key="item.id"
-                class="release-item"
-                :class="[
-                  item.selected ? 'selected' : '',
-                  item.stats?.user.in_collection ? 'in_collection' : '',
-                  item.stats?.user.in_wantlist ? 'in_wantlist' : '',
-                ]"
-                @click.prevent="handleReleaseClick(+item.id)"
-                :data-id="item.id"
-              >
-                <img
-                  :src="item.thumb"
-                  style="max-height: 50px; vertical-align: middle"
-                />
-                {{ item.title }}
-              </div>
+              <n-list hoverable clickable>
+                <n-list-item
+                  v-for="item in versionItems"
+                  :key="item.id"
+                  class="release-item"
+                  :class="[
+                    item.selected ? 'selected' : '',
+                    item.stats?.user.in_collection ? 'in_collection' : '',
+                    item.stats?.user.in_wantlist ? 'in_wantlist' : '',
+                  ]"
+                  @click.prevent="handleReleaseClick(+item.id)"
+                  :data-id="item.id"
+                >
+                  <template #prefix>
+                    <img
+                      :src="item?.thumb"
+                      style="max-height: 50px; vertical-align: middle"
+                    />
+                  </template>
+                  <template #suffix>
+                    <div v-if="item.selected">>>></div>
+                  </template>
+                  <n-thing :title="item.title"> </n-thing>
+                </n-list-item>
+              </n-list>
             </n-grid-item>
             <n-grid-item>
               <n-spin :show="searchingDetails">
