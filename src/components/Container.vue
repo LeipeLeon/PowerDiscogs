@@ -33,11 +33,7 @@ const versionItems = ref<Array<Version>>([
 const releaseDetails = ref<Release>();
 
 const handleKeyUp = (e: any) => {
-  if (e.key === "Enter") {
-    // send request
-    searchMasterRelease();
-    message.info("[Event keyup]");
-  }
+  searchMasterRelease();
 };
 const handleMasterClick = (id: number) => {
   const selectedMasterItemId = +id;
@@ -135,7 +131,7 @@ onMounted(() => {
           type="text"
           placeholder="Search for artist / Title"
           autofocus
-          @keyup="handleKeyUp"
+          @keyup.enter="handleKeyUp"
         />
       </n-layout-header>
       <n-layout position="absolute" style="top: 64px; bottom: 64px">
