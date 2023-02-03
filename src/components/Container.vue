@@ -74,9 +74,13 @@ const fetchData = (fetchUrl: string): Promise<any> => {
     })
       .then((response) => {
         if (!response.ok) {
+          message.error(
+            response.status + ": Something went wrong! (See console log) "
+          );
+          console.log("response", response);
           throw new Error(response.statusText);
         }
-        return response.json() as Promise<any>;
+        return response.json() as Promise<object>;
       })
       .catch(console.error.bind(console));
   } else {
