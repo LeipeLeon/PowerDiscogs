@@ -35,17 +35,15 @@ const handleKeyUp = (e: any) => {
     message.info("[Event keyup]");
   }
 };
-const handleMasterClick = (e: any) => {
-  e.preventDefault();
-  const selectedMasterItemId = +e.target.dataset.id;
+const handleMasterClick = (id: number) => {
+  const selectedMasterItemId = +id;
   masterItems.value.forEach((masterItem) => {
     masterItem.selected = masterItem.id === selectedMasterItemId;
   });
   searchVersion(selectedMasterItemId);
 };
-const handleReleaseClick = (e: any) => {
-  e.preventDefault();
-  const selectedReleaseItemId = +e.target.dataset.id;
+const handleReleaseClick = (id: number) => {
+  const selectedReleaseItemId = +id;
   versionItems.value.forEach((versionItem) => {
     versionItem.selected = versionItem.id === selectedReleaseItemId;
   });
@@ -122,7 +120,7 @@ const searchReleases = (releaseId: number) => {
                 :key="item.id"
                 class="master-item"
                 :class="[item.selected ? 'selected' : '']"
-                @click="handleMasterClick"
+                @click.prevent="handleMasterClick(+item.id)"
                 :data-id="item.id"
               >
                 <img
@@ -145,7 +143,7 @@ const searchReleases = (releaseId: number) => {
                   item.stats?.user.in_collection ? 'in_collection' : '',
                   item.stats?.user.in_wantlist ? 'in_wantlist' : '',
                 ]"
-                @click="handleReleaseClick"
+                @click.prevent="handleReleaseClick(+item.id)"
                 :data-id="item.id"
               >
                 <img
