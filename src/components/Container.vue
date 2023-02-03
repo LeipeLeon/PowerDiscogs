@@ -252,12 +252,12 @@ onMounted(() => {
   background-color: #f1f1f1;
 }
 .in_collection {
-  background-color: green !important;
+  background-color: #06d483 !important;
 }
 .in_wantlist {
-  background-color: red !important;
+  background-color: #d40758 !important;
 }
 .selected {
-  background-color: blue !important;
+  background-color: #f3d1a0 !important;
 }
 </style>
