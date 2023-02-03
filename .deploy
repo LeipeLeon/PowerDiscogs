@@ -1,1 +1,8 @@
-npm run build && aws s3 sync ./dist s3://berl-discogs/ --delete --acl public-read
+echo "Building" && \
+npm run build && \
+echo "Copy" && \
+aws s3 sync ./dist s3://berl-discogs/ --delete --acl public-read && \
+echo "Invalidate" && \
+aws cloudfront create-invalidation \
+    --distribution-id EIMKYISUDQW2Y \
+    --paths "/index.html" > /dev/null
