@@ -138,7 +138,7 @@ onMounted(() => {
           @keyup.enter="handleKeyUp"
         />
       </n-layout-header>
-      <n-layout position="absolute" style="top: 64px; bottom: 64px">
+      <n-layout position="absolute" style="top: 64px; bottom: 88px">
         <n-layout-content content-style="padding: 12px">
           <n-grid cols="3" x-gap="12">
             <n-grid-item>
@@ -220,7 +220,11 @@ onMounted(() => {
           </n-grid>
         </n-layout-content>
       </n-layout>
-      <n-layout-footer bordered position="absolute" style="padding: 24px">
+      <n-layout-footer
+        bordered
+        position="absolute"
+        style="height: 88px; padding: 24px"
+      >
         <p>
           Get your API token
           <a href="https://www.discogs.com/settings/developers">here</a>
