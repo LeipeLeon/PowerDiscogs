@@ -52,7 +52,7 @@ const handleReleaseClick = (id: number) => {
 
 const setApiToken = () => {
   message.info("API Key saved!");
-  localStorage.setItem("DISCOGS_API_TOKEN", apiToken.value);
+  localStorage.setItem("DISCOGS_API_TOKEN", apiToken.value || "");
 };
 
 const getApiToken = () => {
