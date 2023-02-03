@@ -17,6 +17,7 @@ import {
   NListItem,
   NThing,
 } from "naive-ui";
+
 const message = useMessage();
 const inputString = ref();
 let searchingMasters = ref(false);
@@ -161,7 +162,9 @@ onMounted(() => {
                     />
                   </template>
                   <template #suffix>
-                    <div v-if="item.selected">>>></div>
+                    <div v-if="item.selected">
+                      <img src="@/assets/arrowRight.svg" height="44" />
+                    </div>
                   </template>
                   <n-thing :title="item.title"> </n-thing>
                 </n-list-item>
@@ -191,7 +194,9 @@ onMounted(() => {
                     />
                   </template>
                   <template #suffix>
-                    <div v-if="item.selected">>>></div>
+                    <div v-if="item.selected">
+                      <img src="@/assets/arrowRight.svg" height="44" />
+                    </div>
                   </template>
                   <n-thing :title="item.title"> </n-thing>
                 </n-list-item>
