@@ -58,7 +58,7 @@ const requestHeaders = {
   "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
 };
 
-const fetchData = (fetchUrl: string, callback?: any): Promise<T> => {
+const fetchData = (fetchUrl: string): Promise<any> => {
   return fetch(fetchUrl, {
     method: "GET",
     headers: requestHeaders,
@@ -67,7 +67,7 @@ const fetchData = (fetchUrl: string, callback?: any): Promise<T> => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
-      return response.json() as Promise<T>;
+      return response.json() as Promise<any>;
     })
     .catch(console.error.bind(console));
 };
