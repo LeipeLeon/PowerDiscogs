@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import type { MasterItem, Version, Release } from "./interfaces";
 import {
   NLayout,
@@ -22,6 +22,7 @@ const inputString = ref();
 let searchingMasters = ref(false);
 let searchingVersions = ref(false);
 let searchingDetails = ref(false);
+let apiToken = ref<string | null>("");
 
 const masterItems = ref<Array<MasterItem>>([
   { id: -1, title: "First do a search" },
@@ -53,23 +54,39 @@ const handleReleaseClick = (id: number) => {
   searchReleases(selectedReleaseItemId);
 };
 
-const requestHeaders = {
-  Authorization: `Discogs token=${import.meta.env.VITE_DISCOGS_API_TOKEN}`,
-  "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
+const setApiToken = () => {
+  message.info("API Key saved!");
+  localStorage.setItem("DISCOGS_API_TOKEN", apiToken.value);
+};
+
+const getApiToken = () => {
+  apiToken.value = localStorage.getItem("DISCOGS_API_TOKEN");
+};
+
+const requestHeaders = () => {
+  return {
+    Authorization: "Discogs token=" + apiToken.value,
+    "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
+  };
 };
 
 const fetchData = (fetchUrl: string): Promise<any> => {
-  return fetch(fetchUrl, {
-    method: "GET",
-    headers: requestHeaders,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      return response.json() as Promise<any>;
+  if (apiToken.value) {
+    return fetch(fetchUrl, {
+      method: "GET",
+      headers: requestHeaders(),
     })
-    .catch(console.error.bind(console));
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json() as Promise<any>;
+      })
+      .catch(console.error.bind(console));
+  } else {
+    message.error("No API token set!");
+    return Promise.reject("No API Key available");
+  }
 };
 
 const searchMasterRelease = () => {
@@ -79,7 +96,9 @@ const searchMasterRelease = () => {
   searchingMasters.value = true;
   fetchData(fetchUrl)
     .then((data: any) => (masterItems.value = data.results))
-    .then(() => (searchingMasters.value = false));
+    .finally(() => {
+      searchingMasters.value = false;
+    });
 };
 
 const searchVersion = (masterId: number) => {
@@ -87,7 +106,9 @@ const searchVersion = (masterId: number) => {
   searchingVersions.value = true;
   fetchData(fetchUrl)
     .then((data: any) => (versionItems.value = data.versions))
-    .then(() => (searchingVersions.value = false));
+    .finally(() => {
+      searchingVersions.value = false;
+    });
 };
 
 const searchReleases = (releaseId: number) => {
@@ -95,8 +116,14 @@ const searchReleases = (releaseId: number) => {
   searchingDetails.value = true;
   fetchData(fetchUrl)
     .then((data: any) => (releaseDetails.value = data))
-    .then(() => (searchingDetails.value = false));
+    .finally(() => {
+      searchingDetails.value = false;
+    });
 };
+
+onMounted(() => {
+  getApiToken();
+});
 </script>
 
 <template>
@@ -193,11 +220,18 @@ const searchReleases = (releaseId: number) => {
           </n-grid>
         </n-layout-content>
       </n-layout>
-      <n-layout-footer
-        bordered
-        position="absolute"
-        style="height: 64px; padding: 24px"
-      >
+      <n-layout-footer bordered position="absolute" style="padding: 24px">
+        <p>
+          Get your API token
+          <a href="https://www.discogs.com/settings/developers">here</a>
+        </p>
+
+        <n-input
+          v-model:value="apiToken"
+          type="text"
+          placeholder="API token"
+          @keyup.enter="setApiToken"
+        />
       </n-layout-footer>
     </n-layout>
   </div>
