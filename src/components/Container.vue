@@ -7,6 +7,7 @@ import {
   NLayoutHeader,
   NLayoutContent,
   NLayoutFooter,
+  NIcon,
   NInput,
   useMessage,
   NGrid,
@@ -19,6 +20,7 @@ import {
   NThing,
   NScrollbar,
 } from "naive-ui";
+import { Library16Filled, Eye16Regular } from "@vicons/fluent";
 
 const message = useMessage();
 const inputString = ref("Dan Hartman Instant replay");
@@ -158,20 +160,10 @@ onMounted(() => {
                     :data-id="item.id"
                   >
                     <template #prefix>
-                      <n-badge
-                        :value="item.user_data?.in_collection ? 1 : 0"
-                        color="green"
-                      >
-                        <n-badge
-                          :value="item.user_data?.in_wantlist ? 1 : 0"
-                          :offset="[0, 50]"
-                        >
-                          <img
-                            :src="item?.thumb"
-                            style="max-height: 50px; vertical-align: middle"
-                          />
-                        </n-badge>
-                      </n-badge>
+                      <img
+                        :src="item?.thumb"
+                        style="max-height: 50px; vertical-align: middle"
+                      />
                     </template>
                     <template #suffix>
                       <div v-if="item.selected">
@@ -182,6 +174,21 @@ onMounted(() => {
                       :title="item.title"
                       :description="item?.format?.join(', ')"
                     >
+                      <template #header-extra>
+                        <n-badge
+                          v-if="item.user_data?.in_collection"
+                          color="green"
+                        >
+                          <template #value>
+                            <n-icon :component="Library16Filled" />
+                          </template>
+                        </n-badge>
+                        <n-badge v-if="item.user_data?.in_wantlist">
+                          <template #value>
+                            <n-icon :component="Eye16Regular" />
+                          </template>
+                        </n-badge>
+                      </template>
                     </n-thing>
                   </n-list-item>
                 </n-list>
@@ -201,30 +208,33 @@ onMounted(() => {
                     :data-id="item.id"
                   >
                     <template #prefix>
-                      <n-badge
-                        :value="item.stats?.user.in_collection ? 1 : 0"
-                        color="green"
-                      >
-                        <n-badge
-                          :value="item.stats?.user.in_wantlist ? 1 : 0"
-                          :offset="[0, 50]"
-                        >
-                          <img
-                            :src="item?.thumb"
-                            style="max-height: 50px; vertical-align: middle"
-                          />
-                        </n-badge>
-                      </n-badge>
+                      <img
+                        :src="item?.thumb"
+                        style="max-height: 50px; vertical-align: middle"
+                      />
                     </template>
                     <template #suffix>
                       <div v-if="item.selected">
                         <img src="@/assets/arrowRight.svg" height="44" />
                       </div>
                     </template>
-                    <n-thing
-                      :title="item.title"
-                      :description="item?.format"
-                    ></n-thing>
+                    <n-thing :title="item.title" :description="item?.format">
+                      <template #header-extra>
+                        <n-badge
+                          v-if="item.stats?.user.in_collection"
+                          color="green"
+                        >
+                          <template #value>
+                            <n-icon :component="Library16Filled" />
+                          </template>
+                        </n-badge>
+                        <n-badge v-if="item.stats?.user.in_wantlist">
+                          <template #value>
+                            <n-icon :component="Eye16Regular" />
+                          </template>
+                        </n-badge>
+                      </template>
+                    </n-thing>
                   </n-list-item>
                 </n-list>
               </n-scrollbar>

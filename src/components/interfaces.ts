@@ -82,8 +82,8 @@ interface Version {
       in_collection: number;
     };
     user: {
-      in_wantlist: number;
-      in_collection: number;
+      in_wantlist: boolean;
+      in_collection: boolean;
     };
   };
 }
