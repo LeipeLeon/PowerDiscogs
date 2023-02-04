@@ -262,13 +262,13 @@ onMounted(() => {
 .master-item:nth-child(even) {
   background-color: #f1f1f1;
 }
+.selected {
+  background-color: #f3d1a0 !important;
+}
 .in_collection {
   background-color: #06d483 !important;
 }
 .in_wantlist {
   background-color: #d40758 !important;
-}
-.selected {
-  background-color: #f3d1a0 !important;
 }
 </style>
