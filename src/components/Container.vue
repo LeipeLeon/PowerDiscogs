@@ -170,7 +170,10 @@ onMounted(() => {
                       <img src="@/assets/arrowRight.svg" height="44" />
                     </div>
                   </template>
-                  <n-thing :title="item.title" :description="item.format">
+                  <n-thing
+                    :title="item.title"
+                    :description="item?.format?.join(', ')"
+                  >
                   </n-thing>
                 </n-list-item>
               </n-list>
@@ -205,7 +208,7 @@ onMounted(() => {
                   </template>
                   <n-thing
                     :title="item.title"
-                    :description="item.format"
+                    :description="item?.format"
                   ></n-thing>
                 </n-list-item>
               </n-list>

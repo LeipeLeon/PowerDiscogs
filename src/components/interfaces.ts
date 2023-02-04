@@ -47,6 +47,11 @@ interface MasterItem {
   tracklist?: Tracklist[];
   artists?: Artist[];
   data_quality?: string;
+  format?: string[];
+  user_data?: {
+    in_wantlist: boolean;
+    in_collection: boolean;
+  };
   videos?: [
     {
       uri: string;
