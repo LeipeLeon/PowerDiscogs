@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import type { MasterItem, Version, Release } from "./interfaces";
 import {
+  NBadge,
   NLayout,
   NLayoutHeader,
   NLayoutContent,
@@ -153,19 +154,24 @@ onMounted(() => {
                     v-for="item in masterItems"
                     :key="item.id"
                     class="master-item"
-                    :class="[
-                      item.selected ? 'selected' : '',
-                      item.user_data?.in_collection ? 'in_collection' : '',
-                      item.user_data?.in_wantlist ? 'in_wantlist' : '',
-                    ]"
                     @click.prevent="handleMasterClick(+item.id)"
                     :data-id="item.id"
                   >
                     <template #prefix>
-                      <img
-                        :src="item?.thumb"
-                        style="max-height: 50px; vertical-align: middle"
-                      />
+                      <n-badge
+                        :value="item.user_data?.in_collection ? 1 : 0"
+                        color="green"
+                      >
+                        <n-badge
+                          :value="item.user_data?.in_wantlist ? 1 : 0"
+                          :offset="[0, 50]"
+                        >
+                          <img
+                            :src="item?.thumb"
+                            style="max-height: 50px; vertical-align: middle"
+                          />
+                        </n-badge>
+                      </n-badge>
                     </template>
                     <template #suffix>
                       <div v-if="item.selected">
@@ -191,19 +197,24 @@ onMounted(() => {
                     v-for="item in versionItems"
                     :key="item.id"
                     class="release-item"
-                    :class="[
-                      item.selected ? 'selected' : '',
-                      item.stats?.user.in_collection ? 'in_collection' : '',
-                      item.stats?.user.in_wantlist ? 'in_wantlist' : '',
-                    ]"
                     @click.prevent="handleReleaseClick(+item.id)"
                     :data-id="item.id"
                   >
                     <template #prefix>
-                      <img
-                        :src="item?.thumb"
-                        style="max-height: 50px; vertical-align: middle"
-                      />
+                      <n-badge
+                        :value="item.stats?.user.in_collection ? 1 : 0"
+                        color="green"
+                      >
+                        <n-badge
+                          :value="item.stats?.user.in_wantlist ? 1 : 0"
+                          :offset="[0, 50]"
+                        >
+                          <img
+                            :src="item?.thumb"
+                            style="max-height: 50px; vertical-align: middle"
+                          />
+                        </n-badge>
+                      </n-badge>
                     </template>
                     <template #suffix>
                       <div v-if="item.selected">
