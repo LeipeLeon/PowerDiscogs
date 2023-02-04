@@ -16,10 +16,11 @@ import {
   NList,
   NListItem,
   NThing,
+  NScrollbar,
 } from "naive-ui";
 
 const message = useMessage();
-const inputString = ref();
+const inputString = ref("Dan Hartman Instant replay");
 let searchingMasters = ref(false);
 let searchingVersions = ref(false);
 let searchingDetails = ref(false);
@@ -146,72 +147,76 @@ onMounted(() => {
               <n-spin :show="searchingMasters">
                 <n-h3>Master</n-h3>
               </n-spin>
-              <n-list hoverable clickable>
-                <n-list-item
-                  v-for="item in masterItems"
-                  :key="item.id"
-                  class="master-item"
-                  :class="[
-                    item.selected ? 'selected' : '',
-                    item.user_data?.in_collection ? 'in_collection' : '',
-                    item.user_data?.in_wantlist ? 'in_wantlist' : '',
-                  ]"
-                  @click.prevent="handleMasterClick(+item.id)"
-                  :data-id="item.id"
-                >
-                  <template #prefix>
-                    <img
-                      :src="item?.thumb"
-                      style="max-height: 50px; vertical-align: middle"
-                    />
-                  </template>
-                  <template #suffix>
-                    <div v-if="item.selected">
-                      <img src="@/assets/arrowRight.svg" height="44" />
-                    </div>
-                  </template>
-                  <n-thing
-                    :title="item.title"
-                    :description="item?.format?.join(', ')"
+              <n-scrollbar trigger="none" style="max-height: 75vh">
+                <n-list hoverable clickable>
+                  <n-list-item
+                    v-for="item in masterItems"
+                    :key="item.id"
+                    class="master-item"
+                    :class="[
+                      item.selected ? 'selected' : '',
+                      item.user_data?.in_collection ? 'in_collection' : '',
+                      item.user_data?.in_wantlist ? 'in_wantlist' : '',
+                    ]"
+                    @click.prevent="handleMasterClick(+item.id)"
+                    :data-id="item.id"
                   >
-                  </n-thing>
-                </n-list-item>
-              </n-list>
+                    <template #prefix>
+                      <img
+                        :src="item?.thumb"
+                        style="max-height: 50px; vertical-align: middle"
+                      />
+                    </template>
+                    <template #suffix>
+                      <div v-if="item.selected">
+                        <img src="@/assets/arrowRight.svg" height="44" />
+                      </div>
+                    </template>
+                    <n-thing
+                      :title="item.title"
+                      :description="item?.format?.join(', ')"
+                    >
+                    </n-thing>
+                  </n-list-item>
+                </n-list>
+              </n-scrollbar>
             </n-grid-item>
             <n-grid-item>
               <n-spin :show="searchingVersions">
                 <n-h3>Version</n-h3>
               </n-spin>
-              <n-list hoverable clickable>
-                <n-list-item
-                  v-for="item in versionItems"
-                  :key="item.id"
-                  class="release-item"
-                  :class="[
-                    item.selected ? 'selected' : '',
-                    item.stats?.user.in_collection ? 'in_collection' : '',
-                    item.stats?.user.in_wantlist ? 'in_wantlist' : '',
-                  ]"
-                  @click.prevent="handleReleaseClick(+item.id)"
-                  :data-id="item.id"
-                >
-                  <template #prefix>
-                    <img
-                      :src="item?.thumb"
-                      style="max-height: 50px; vertical-align: middle"
-                    />
-                  </template>
-                  <template #suffix>
-                    <div v-if="item.selected">
-                      <img src="@/assets/arrowRight.svg" height="44" />
-                    </div>
-                  </template>
-                  <n-thing
-                    :title="item.title"
-                    :description="item?.format"
-                  ></n-thing>
-                </n-list-item>
-              </n-list>
+              <n-scrollbar trigger="none" style="max-height: 75vh">
+                <n-list hoverable clickable>
+                  <n-list-item
+                    v-for="item in versionItems"
+                    :key="item.id"
+                    class="release-item"
+                    :class="[
+                      item.selected ? 'selected' : '',
+                      item.stats?.user.in_collection ? 'in_collection' : '',
+                      item.stats?.user.in_wantlist ? 'in_wantlist' : '',
+                    ]"
+                    @click.prevent="handleReleaseClick(+item.id)"
+                    :data-id="item.id"
+                  >
+                    <template #prefix>
+                      <img
+                        :src="item?.thumb"
+                        style="max-height: 50px; vertical-align: middle"
+                      />
+                    </template>
+                    <template #suffix>
+                      <div v-if="item.selected">
+                        <img src="@/assets/arrowRight.svg" height="44" />
+                      </div>
+                    </template>
+                    <n-thing
+                      :title="item.title"
+                      :description="item?.format"
+                    ></n-thing>
+                  </n-list-item>
+                </n-list>
+              </n-scrollbar>
             </n-grid-item>
             <n-grid-item>
               <n-spin :show="searchingDetails">
