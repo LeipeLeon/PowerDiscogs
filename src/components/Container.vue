@@ -92,7 +92,7 @@ const fetchData = (fetchUrl: string): Promise<any> => {
 
 const searchMasterRelease = () => {
   const fetchUrl =
-    "https://api.discogs.com/database/search?format=7%22&type=master&q=" +
+    "https://api.discogs.com/database/search?format=Single&type=master&q=" +
     inputString.value;
   searchingMasters.value = true;
   fetchData(fetchUrl)
