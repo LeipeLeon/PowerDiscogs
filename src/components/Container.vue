@@ -151,7 +151,11 @@ onMounted(() => {
                   v-for="item in masterItems"
                   :key="item.id"
                   class="master-item"
-                  :class="[item.selected ? 'selected' : '']"
+                  :class="[
+                    item.selected ? 'selected' : '',
+                    item.user_data?.in_collection ? 'in_collection' : '',
+                    item.user_data?.in_wantlist ? 'in_wantlist' : '',
+                  ]"
                   @click.prevent="handleMasterClick(+item.id)"
                   :data-id="item.id"
                 >
