@@ -25,7 +25,7 @@ import {
 import { Library16Filled, Eye16Regular } from "@vicons/fluent";
 
 const message = useMessage();
-const inputString = ref("Dan Hartman Instant replay");
+const inputString = ref();
 let searchingMasters = ref(false);
 let searchingVersions = ref(false);
 let searchingDetails = ref(false);
