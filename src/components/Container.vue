@@ -20,6 +20,7 @@ import {
   NListItem,
   NThing,
   NScrollbar,
+  NStatistic,
 } from "naive-ui";
 import { Library16Filled, Eye16Regular } from "@vicons/fluent";
 
@@ -245,12 +246,40 @@ onMounted(() => {
                   {{ releaseDetails.title }}
                 </n-h2>
                 <img :src="releaseDetails.thumb" />
-                <dl>
-                  <dt>For sale:</dt>
-                  <dd>{{ releaseDetails.num_for_sale }}</dd>
-                  <dt>Lowest Price:</dt>
-                  <dd>{{ releaseDetails.lowest_price }} EUR</dd>
-                </dl>
+                <n-grid :cols="4">
+                  <n-grid-item>
+                    <n-statistic
+                      label="For Sale"
+                      :value="releaseDetails.num_for_sale"
+                    ></n-statistic>
+                  </n-grid-item>
+                  <n-grid-item>
+                    <n-statistic
+                      label="Lowest Price"
+                      :value="releaseDetails.lowest_price"
+                    >
+                      <template #prefix> € </template></n-statistic
+                    >
+                  </n-grid-item>
+                  <n-grid-item>
+                    <n-statistic
+                      label="Have / Want"
+                      :value="releaseDetails.community.have"
+                    >
+                      <template #suffix>
+                        / {{ releaseDetails.community.want }}
+                      </template></n-statistic
+                    >
+                  </n-grid-item>
+                  <n-grid-item>
+                    <n-statistic
+                      label="Lowest Price"
+                      :value="releaseDetails.lowest_price"
+                    >
+                      <template #prefix> € </template></n-statistic
+                    >
+                  </n-grid-item>
+                </n-grid>
               </div>
               <n-h2 v-else>No Version selected</n-h2>
             </n-grid-item>
