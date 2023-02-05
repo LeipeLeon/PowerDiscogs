@@ -21,11 +21,13 @@ import {
   NThing,
   NScrollbar,
   NStatistic,
+  NSwitch,
 } from "naive-ui";
 import { Library16Filled, Eye16Regular } from "@vicons/fluent";
 
 const message = useMessage();
 const inputString = ref();
+let searchType = ref("master");
 let searchingMasters = ref(false);
 let searchingVersions = ref(false);
 let searchingDetails = ref(false);
@@ -43,11 +45,15 @@ const handleKeyUp = (e: any) => {
   searchMasterRelease();
 };
 const handleMasterClick = (id: number) => {
-  const selectedMasterItemId = +id;
-  masterItems.value.forEach((masterItem) => {
-    masterItem.selected = masterItem.id === selectedMasterItemId;
-  });
-  searchVersion(selectedMasterItemId);
+  if (searchType.value === "master") {
+    const selectedMasterItemId = +id;
+    masterItems.value.forEach((masterItem) => {
+      masterItem.selected = masterItem.id === selectedMasterItemId;
+    });
+    searchVersion(selectedMasterItemId);
+  } else {
+    handleReleaseClick(id);
+  }
 };
 const handleReleaseClick = (id: number) => {
   const selectedReleaseItemId = +id;
@@ -98,7 +104,9 @@ const fetchData = (fetchUrl: string): Promise<any> => {
 
 const searchMasterRelease = () => {
   const fetchUrl =
-    "https://api.discogs.com/database/search?format=Single&type=master&q=" +
+    "https://api.discogs.com/database/search?format=Single&type=" +
+    searchType.value +
+    "&q=" +
     inputString.value;
   searchingMasters.value = true;
   fetchData(fetchUrl)
@@ -150,7 +158,17 @@ onMounted(() => {
           <n-grid cols="3" x-gap="12">
             <n-grid-item>
               <n-spin :show="searchingMasters">
-                <n-h3>Master</n-h3>
+                <n-h3>
+                  <n-switch
+                    checked-value="master"
+                    unchecked-value="release"
+                    v-model:value="searchType"
+                    @update:value="searchMasterRelease"
+                  >
+                    <template #checked>Master</template>
+                    <template #unchecked>Release</template>
+                  </n-switch>
+                </n-h3>
               </n-spin>
               <n-scrollbar trigger="none" style="max-height: 75vh">
                 <n-list hoverable clickable>
@@ -252,6 +270,7 @@ onMounted(() => {
                   </a>
                 </n-h2>
                 <img :src="releaseDetails.thumb" />
+                &nbsp;
                 <a
                   :href="
                     'https://www.discogs.com/master/' +
@@ -260,7 +279,7 @@ onMounted(() => {
                   "
                   target="_discogs_details"
                 >
-                  &nbsp; MASTER</a
+                  MASTER</a
                 >
 
                 <n-grid :cols="4">
