@@ -2,6 +2,7 @@
 import { ref, onMounted } from "vue";
 import type { MasterItem, Version, Release } from "./interfaces";
 import {
+  NAvatar,
   NBadge,
   NLayout,
   NLayoutHeader,
@@ -159,12 +160,6 @@ onMounted(() => {
                     @click.prevent="handleMasterClick(+item.id)"
                     :data-id="item.id"
                   >
-                    <template #prefix>
-                      <img
-                        :src="item?.thumb"
-                        style="max-height: 50px; vertical-align: middle"
-                      />
-                    </template>
                     <template #suffix>
                       <div v-if="item.selected">
                         <img src="@/assets/arrowRight.svg" height="44" />
@@ -174,6 +169,9 @@ onMounted(() => {
                       :title="item.title"
                       :description="item?.format?.join(', ')"
                     >
+                      <template #avatar>
+                        <n-avatar :src="item?.thumb" :size="75"></n-avatar>
+                      </template>
                       <template #header-extra>
                         <n-badge
                           v-if="item.user_data?.in_collection"
@@ -207,18 +205,15 @@ onMounted(() => {
                     @click.prevent="handleReleaseClick(+item.id)"
                     :data-id="item.id"
                   >
-                    <template #prefix>
-                      <img
-                        :src="item?.thumb"
-                        style="max-height: 50px; vertical-align: middle"
-                      />
-                    </template>
                     <template #suffix>
                       <div v-if="item.selected">
                         <img src="@/assets/arrowRight.svg" height="44" />
                       </div>
                     </template>
                     <n-thing :title="item.title" :description="item?.format">
+                      <template #avatar>
+                        <n-avatar :src="item?.thumb" :size="75"></n-avatar>
+                      </template>
                       <template #header-extra>
                         <n-badge
                           v-if="item.stats?.user.in_collection"
