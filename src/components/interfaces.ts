@@ -52,15 +52,7 @@ interface MasterItem {
     in_wantlist: boolean;
     in_collection: boolean;
   };
-  videos?: [
-    {
-      uri: string;
-      title: string;
-      description: string;
-      duration: number;
-      embed: boolean;
-    }
-  ];
+  videos?: Video[];
 }
 
 interface Version {
@@ -96,6 +88,21 @@ interface Release {
   artists_sort?: string;
   num_for_sale?: number;
   lowest_price?: number;
+  identifiers?: KeyValType[];
+  videos?: Video[];
+  tracklist?: Tracklist[];
 }
 
+interface KeyValType {
+  type: string;
+  value: string;
+}
+
+interface Video {
+  uri: string;
+  title: string;
+  description: string;
+  duration: number;
+  embed: boolean;
+}
 export type { MasterItem, Version, Release };

@@ -211,7 +211,7 @@ onMounted(() => {
                         <img src="@/assets/arrowRight.svg" height="44" />
                       </div>
                     </template>
-                    <n-thing :title="item.title" :description="item?.format">
+                    <n-thing :title="item.title">
                       <template #avatar>
                         <n-avatar :src="item?.thumb" :size="75"></n-avatar>
                       </template>
@@ -230,6 +230,10 @@ onMounted(() => {
                           </template>
                         </n-badge>
                       </template>
+                      <template #description>
+                        {{ item.country }}, {{ item.label }}<br />
+                        <code>{{ item.catno }}</code>
+                      </template>
                     </n-thing>
                   </n-list-item>
                 </n-list>
@@ -241,26 +245,25 @@ onMounted(() => {
               </n-spin>
               <div v-if="releaseDetails">
                 <n-h2>
-                  {{ releaseDetails.artists_sort }}
-                  -
-                  {{ releaseDetails.title }}
+                  <a :href="releaseDetails.uri" target="_discogs_details">
+                    {{ releaseDetails.artists_sort }}
+                    -
+                    {{ releaseDetails.title }}
+                  </a>
                 </n-h2>
                 <img :src="releaseDetails.thumb" />
+                <a
+                  :href="
+                    'https://www.discogs.com/master/' +
+                    releaseDetails.master_id +
+                    '?format=7%22'
+                  "
+                  target="_discogs_details"
+                >
+                  &nbsp; MASTER</a
+                >
+
                 <n-grid :cols="4">
-                  <n-grid-item>
-                    <n-statistic
-                      label="For Sale"
-                      :value="releaseDetails.num_for_sale"
-                    ></n-statistic>
-                  </n-grid-item>
-                  <n-grid-item>
-                    <n-statistic
-                      label="Lowest Price"
-                      :value="releaseDetails.lowest_price"
-                    >
-                      <template #prefix> € </template></n-statistic
-                    >
-                  </n-grid-item>
                   <n-grid-item>
                     <n-statistic
                       label="Have / Want"
@@ -279,7 +282,22 @@ onMounted(() => {
                       <template #prefix> € </template></n-statistic
                     >
                   </n-grid-item>
+                  <n-grid-item>
+                    <n-statistic
+                      label="For Sale"
+                      :value="releaseDetails.num_for_sale"
+                    ></n-statistic>
+                  </n-grid-item>
+                  <n-grid-item>
+                    <n-statistic
+                      label="Lowest Price"
+                      :value="releaseDetails.lowest_price"
+                    >
+                      <template #prefix> € </template></n-statistic
+                    >
+                  </n-grid-item>
                 </n-grid>
+                {{ releaseDetails.notes }}
               </div>
               <n-h2 v-else>No Version selected</n-h2>
             </n-grid-item>
