@@ -91,6 +91,13 @@ interface Release {
   identifiers?: KeyValType[];
   videos?: Video[];
   tracklist?: Tracklist[];
+  uri: string;
+  master_id: number;
+  community: {
+    want: number;
+    have: number;
+  };
+  notes: string;
 }
 
 interface KeyValType {
