@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick, watch } from "vue";
 import type { MasterItem, Version, Release } from "./interfaces";
 import {
   NAvatar,
@@ -24,8 +24,11 @@ import {
   NSwitch,
 } from "naive-ui";
 import { Library16Filled, Eye16Regular } from "@vicons/fluent";
+import { useWindowFocus } from "@vueuse/core";
 
+const focused = useWindowFocus();
 const message = useMessage();
+const inputRef = ref();
 const inputString = ref();
 let searchType = ref("master");
 let searchingMasters = ref(false);
@@ -56,11 +59,13 @@ const handleMasterClick = (id: number) => {
   }
 };
 const handleReleaseClick = (id: number) => {
-  const selectedReleaseItemId = +id;
-  versionItems.value.forEach((versionItem) => {
-    versionItem.selected = versionItem.id === selectedReleaseItemId;
-  });
-  searchReleases(selectedReleaseItemId);
+  const releaseUrl = "https://www.discogs.com/release/" + id;
+  window.open(releaseUrl, "_discogs_details");
+  // const selectedReleaseItemId = +id;
+  // versionItems.value.forEach((versionItem) => {
+  //   versionItem.selected = versionItem.id === selectedReleaseItemId;
+  // });
+  // searchReleases(selectedReleaseItemId);
 };
 
 const setApiToken = () => {
@@ -135,7 +140,14 @@ const searchReleases = (releaseId: number) => {
       searchingDetails.value = false;
     });
 };
-
+watch(focused, (isFocused: boolean) => {
+  if (isFocused) {
+    console.info("setFocusOnInput", inputString.value);
+    nextTick(() => {
+      inputRef.value.focus();
+    });
+  }
+});
 onMounted(() => {
   getApiToken();
 });
@@ -147,15 +159,17 @@ onMounted(() => {
       <n-layout-header style="padding: 1rem" bordered inverted>
         <n-input
           v-model:value="inputString"
+          ref="inputRef"
           type="text"
           placeholder="Search for artist / Title"
           autofocus
+          @focus="$event.target.select()"
           @keyup.enter="handleKeyUp"
         />
       </n-layout-header>
       <n-layout position="absolute" style="top: 64px; bottom: 88px">
         <n-layout-content content-style="padding: 12px">
-          <n-grid cols="3" x-gap="12">
+          <n-grid cols="2" x-gap="12">
             <n-grid-item>
               <n-spin :show="searchingMasters">
                 <n-h3>
@@ -257,7 +271,7 @@ onMounted(() => {
                 </n-list>
               </n-scrollbar>
             </n-grid-item>
-            <n-grid-item>
+            <!-- <n-grid-item>
               <n-spin :show="searchingDetails">
                 <n-h3>Details</n-h3>
               </n-spin>
@@ -319,7 +333,7 @@ onMounted(() => {
                 {{ releaseDetails.notes }}
               </div>
               <n-h2 v-else>No Version selected</n-h2>
-            </n-grid-item>
+            </n-grid-item> -->
           </n-grid>
         </n-layout-content>
       </n-layout>
