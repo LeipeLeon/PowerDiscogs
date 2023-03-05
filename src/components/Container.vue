@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick, watch } from "vue";
-import type { MasterItem, Version, Release } from "./interfaces";
+import type { MasterItem, Version } from "./interfaces";
 import {
   NAvatar,
   NBadge,
@@ -13,14 +13,12 @@ import {
   useMessage,
   NGrid,
   NGridItem,
-  NH2,
   NH3,
   NSpin,
   NList,
   NListItem,
   NThing,
   NScrollbar,
-  NStatistic,
   NSwitch,
 } from "naive-ui";
 import { Library16Filled, Eye16Regular } from "@vicons/fluent";
