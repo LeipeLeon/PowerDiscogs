@@ -45,6 +45,7 @@ const versionItems = ref<Array<Version>>([
 const handleKeyUp = () => {
   searchMasterRelease();
 };
+
 const handleMasterClick = (id: number) => {
   if (searchType.value === "master") {
     selectedMasterItemId.value = +id;
@@ -56,6 +57,7 @@ const handleMasterClick = (id: number) => {
     handleReleaseClick(id);
   }
 };
+
 const handleReleaseClick = (id: number) => {
   const releaseUrl = "https://www.discogs.com/release/" + id;
   window.open(releaseUrl, "_discogs_details");
@@ -144,14 +146,15 @@ const searchVersion = () => {
       searchingVersions.value = false;
     });
 };
+
 watch(focused, (isFocused: boolean) => {
   if (isFocused) {
-    console.info("setFocusOnInput", inputString.value);
     nextTick(() => {
       inputRef.value.focus();
     });
   }
 });
+
 onMounted(() => {
   getApiToken();
 });
