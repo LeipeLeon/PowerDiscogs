@@ -119,12 +119,24 @@ const searchMasterRelease = () => {
     });
 };
 
+const preferredOrder = ["Germany", "Europe", "Netherlands"];
+
 const searchVersion = () => {
   const fetchUrl = `https://api.discogs.com/masters/${selectedMasterItemId.value}/versions?format=7%22`;
   searchingVersions.value = true;
   versionItems.value = [];
   fetchData(fetchUrl)
-    .then((data: any) => (versionItems.value = data.versions))
+    .then((data: any) => {
+      versionItems.value = data.versions
+        .slice()
+        .sort(function (a, b) {
+          return (
+            preferredOrder.indexOf(a.country) -
+            preferredOrder.indexOf(b.country)
+          );
+        })
+        .reverse();
+    })
     .finally(() => {
       searchingVersions.value = false;
     });
