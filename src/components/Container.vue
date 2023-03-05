@@ -123,7 +123,7 @@ const searchMasterRelease = () => {
 const preferredOrder = ["Germany", "Europe", "Netherlands"];
 
 const searchVersion = () => {
-  const fetchUrl = `https://api.discogs.com/masters/${selectedMasterItemId.value}/versions?format=7%22`;
+  const fetchUrl = `https://api.discogs.com/masters/${selectedMasterItemId.value}/versions?per_page=100&format=7%22`;
   searchingVersions.value = true;
   versionCount.value = 0;
   versionItems.value = [];
