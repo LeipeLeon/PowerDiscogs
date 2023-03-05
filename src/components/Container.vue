@@ -27,6 +27,7 @@ import { useWindowFocus } from "@vueuse/core";
 const focused = useWindowFocus();
 const message = useMessage();
 const inputRef = ref();
+const versionCount = ref(0);
 const inputString = ref();
 let searchType = ref("master");
 let searchingMasters = ref(false);
@@ -124,9 +125,11 @@ const preferredOrder = ["Germany", "Europe", "Netherlands"];
 const searchVersion = () => {
   const fetchUrl = `https://api.discogs.com/masters/${selectedMasterItemId.value}/versions?format=7%22`;
   searchingVersions.value = true;
+  versionCount.value = 0;
   versionItems.value = [];
   fetchData(fetchUrl)
     .then((data: any) => {
+      versionCount.value = data.pagination.items;
       versionItems.value = data.versions
         .slice()
         .sort(function (a, b) {
@@ -228,8 +231,9 @@ onMounted(() => {
             </n-grid-item>
             <n-grid-item>
               <n-spin :show="searchingVersions">
-                <n-h3
-                  >Version
+                <n-h3>
+                  {{ versionCount }}
+                  Versions
                   <a
                     style="float: right"
                     :href="
