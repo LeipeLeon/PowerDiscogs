@@ -33,7 +33,7 @@ const inputString = ref();
 let searchType = ref("master");
 let searchingMasters = ref(false);
 let searchingVersions = ref(false);
-let searchingDetails = ref(false);
+let selectedMasterItemId = ref<number | null>(null);
 let apiToken = ref<string | null>("");
 
 const masterItems = ref<Array<MasterItem>>([
@@ -42,18 +42,17 @@ const masterItems = ref<Array<MasterItem>>([
 const versionItems = ref<Array<Version>>([
   { id: -1, title: "No master selected" },
 ]);
-const releaseDetails = ref<Release>();
 
-const handleKeyUp = (e: any) => {
+const handleKeyUp = () => {
   searchMasterRelease();
 };
 const handleMasterClick = (id: number) => {
   if (searchType.value === "master") {
-    const selectedMasterItemId = +id;
+    selectedMasterItemId.value = +id;
     masterItems.value.forEach((masterItem) => {
-      masterItem.selected = masterItem.id === selectedMasterItemId;
+      masterItem.selected = masterItem.id === selectedMasterItemId.value;
     });
-    searchVersion(selectedMasterItemId);
+    searchVersion();
   } else {
     handleReleaseClick(id);
   }
@@ -114,6 +113,7 @@ const searchMasterRelease = () => {
     "&q=" +
     inputString.value;
   searchingMasters.value = true;
+  versionItems.value = [];
   fetchData(fetchUrl)
     .then((data: any) => (masterItems.value = data.results))
     .finally(() => {
@@ -121,23 +121,14 @@ const searchMasterRelease = () => {
     });
 };
 
-const searchVersion = (masterId: number) => {
-  const fetchUrl = `https://api.discogs.com/masters/${masterId}/versions?format=7%22`;
+const searchVersion = () => {
+  const fetchUrl = `https://api.discogs.com/masters/${selectedMasterItemId.value}/versions?format=7%22`;
   searchingVersions.value = true;
+  versionItems.value = [];
   fetchData(fetchUrl)
     .then((data: any) => (versionItems.value = data.versions))
     .finally(() => {
       searchingVersions.value = false;
-    });
-};
-
-const searchReleases = (releaseId: number) => {
-  const fetchUrl = `https://api.discogs.com/releases/${releaseId}`;
-  searchingDetails.value = true;
-  fetchData(fetchUrl)
-    .then((data: any) => (releaseDetails.value = data))
-    .finally(() => {
-      searchingDetails.value = false;
     });
 };
 watch(focused, (isFocused: boolean) => {
@@ -163,7 +154,7 @@ onMounted(() => {
           type="text"
           placeholder="Search for artist / Title"
           autofocus
-          @focus="$event.target.select()"
+          @focus="$event.target?.select()"
           @keyup.enter="handleKeyUp"
         />
       </n-layout-header>
@@ -227,7 +218,21 @@ onMounted(() => {
             </n-grid-item>
             <n-grid-item>
               <n-spin :show="searchingVersions">
-                <n-h3>Version</n-h3>
+                <n-h3
+                  >Version
+                  <a
+                    style="float: right"
+                    :href="
+                      'https://www.discogs.com/master/' +
+                      selectedMasterItemId +
+                      '?format=7%22'
+                    "
+                    v-if="selectedMasterItemId"
+                    target="_discogs_details"
+                  >
+                    MASTER</a
+                  >
+                </n-h3>
               </n-spin>
               <n-scrollbar trigger="none" style="max-height: 75vh">
                 <n-list hoverable clickable>
