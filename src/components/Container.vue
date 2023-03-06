@@ -5,7 +5,6 @@ import {
   NAvatar,
   NBadge,
   NLayout,
-  NLayoutHeader,
   NLayoutContent,
   NLayoutFooter,
   NIcon,
@@ -38,7 +37,9 @@ const formats = [
   { value: '12"', label: '12"' },
   { value: "LP", label: "LP" },
 ];
+
 const inputString = ref();
+const filterString = ref("");
 let searchType = ref("master");
 let searchingMasters = ref(false);
 let searchingVersions = ref(false);
@@ -48,9 +49,8 @@ let apiToken = ref<string | null>("");
 const masterItems = ref<Array<MasterItem>>([
   { id: -1, title: "First do a search" },
 ]);
-const versionItems = ref<Array<Version>>([
-  { id: -1, title: "No master selected", country: "" },
-]);
+const versionItems = ref<Array<Version>>([]);
+const filtered = ref<Array<Version>>([]);
 
 const handleKeyUp = () => {
   searchMasterRelease();
@@ -155,6 +155,7 @@ const searchVersion = () => {
     })
     .finally(() => {
       searchingVersions.value = false;
+      filtered.value = versionItems.value;
     });
 };
 
@@ -166,6 +167,21 @@ watch(focused, (isFocused: boolean) => {
   }
 });
 
+const applyFilter = () => {
+  let filter = filterString.value;
+  console.log("filter.length", !filter.length);
+  if (filter.length) {
+    filtered.value = versionItems.value.filter(
+      (version) =>
+        version.country?.toLowerCase().includes(filter.toLowerCase()) ||
+        version.label?.toLowerCase().includes(filter.toLowerCase()) ||
+        version.format?.toLowerCase().includes(filter.toLowerCase()) ||
+        version.catno?.toLowerCase().includes(filter.toLowerCase())
+    );
+  } else {
+    filtered.value = versionItems.value;
+  }
+};
 onMounted(() => {
   getApiToken();
 });
@@ -174,218 +190,225 @@ onMounted(() => {
 <template>
   <div style="height: 100vh; position: relative">
     <n-layout position="absolute">
-      <n-layout-header style="padding: 1rem" bordered inverted>
-        <n-space item-style="display: flex;">
-          <n-input
-            v-model:value="inputString"
-            ref="inputRef"
-            type="text"
-            placeholder="Search for artist / Title"
-            autofocus
-            autosize
-            style="min-width: 50vw"
-            @focus="$event.target?.select()"
-            @keyup.enter="handleKeyUp"
-          />
-        </n-space>
-      </n-layout-header>
-      <n-layout position="absolute" style="top: 64px; bottom: 88px">
-        <n-layout-content content-style="padding: 12px">
-          <n-grid cols="2" x-gap="12">
-            <n-grid-item>
-              <n-spin :show="searchingMasters">
-                <n-h3>
-                  <n-switch
-                    checked-value="master"
-                    unchecked-value="release"
-                    v-model:value="searchType"
-                    @update:value="searchMasterRelease"
+      <n-layout-content content-style="padding: 12px">
+        <n-grid cols="2" x-gap="12">
+          <n-grid-item>
+            <n-spin :show="searchingMasters">
+              <n-h3>
+                <n-switch
+                  checked-value="master"
+                  unchecked-value="release"
+                  v-model:value="searchType"
+                  @update:value="searchMasterRelease"
+                >
+                  <template #checked>Master</template>
+                  <template #unchecked>Release</template>
+                </n-switch>
+              </n-h3>
+            </n-spin>
+            <n-input
+              v-model:value="inputString"
+              ref="inputRef"
+              type="text"
+              placeholder="Search for artist / Title"
+              autofocus
+              @focus="$event.target?.select()"
+              @keyup.enter="handleKeyUp"
+            />
+            <n-scrollbar trigger="none" style="max-height: 75vh">
+              <n-list hoverable clickable>
+                <n-list-item
+                  v-for="item in masterItems"
+                  :key="item.id"
+                  class="master-item"
+                  @click.prevent="handleMasterClick(+item.id)"
+                  :data-id="item.id"
+                >
+                  <template #suffix>
+                    <div v-if="item.selected">
+                      <img src="@/assets/arrowRight.svg" height="44" />
+                    </div>
+                  </template>
+                  <n-thing
+                    :title="item.title"
+                    :description="item?.format?.join(', ')"
                   >
-                    <template #checked>Master</template>
-                    <template #unchecked>Release</template>
-                  </n-switch>
-                </n-h3>
-              </n-spin>
-              <n-scrollbar trigger="none" style="max-height: 75vh">
-                <n-list hoverable clickable>
-                  <n-list-item
-                    v-for="item in masterItems"
-                    :key="item.id"
-                    class="master-item"
-                    @click.prevent="handleMasterClick(+item.id)"
-                    :data-id="item.id"
-                  >
-                    <template #suffix>
-                      <div v-if="item.selected">
-                        <img src="@/assets/arrowRight.svg" height="44" />
-                      </div>
+                    <template #avatar>
+                      <n-avatar :src="item?.thumb" :size="75"></n-avatar>
                     </template>
-                    <n-thing
-                      :title="item.title"
-                      :description="item?.format?.join(', ')"
-                    >
-                      <template #avatar>
-                        <n-avatar :src="item?.thumb" :size="75"></n-avatar>
-                      </template>
-                      <template #header-extra>
-                        <n-badge
-                          v-if="item.user_data?.in_collection"
-                          color="green"
-                        >
-                          <template #value>
-                            <n-icon :component="Library16Filled" />
-                          </template>
-                        </n-badge>
-                        <n-badge v-if="item.user_data?.in_wantlist">
-                          <template #value>
-                            <n-icon :component="Eye16Regular" />
-                          </template>
-                        </n-badge>
-                      </template>
-                    </n-thing>
-                  </n-list-item>
-                </n-list>
-              </n-scrollbar>
-            </n-grid-item>
-            <n-grid-item>
-              <n-spin :show="searchingVersions">
-                <n-h3>
-                  {{ versionCount }}
-                  Versions
-                  <n-radio-group v-model:value="format" name="radiogroup">
-                    <n-space>
-                      <n-radio
-                        v-for="format in formats"
-                        :key="format.value"
-                        :value="format.value"
-                        :label="format.label"
-                        :default-checked="format.defaultChecked"
-                      />
-                    </n-space>
-                  </n-radio-group>
+                    <template #header-extra>
+                      <n-badge
+                        v-if="item.user_data?.in_collection"
+                        color="green"
+                      >
+                        <template #value>
+                          <n-icon :component="Library16Filled" />
+                        </template>
+                      </n-badge>
+                      <n-badge v-if="item.user_data?.in_wantlist">
+                        <template #value>
+                          <n-icon :component="Eye16Regular" />
+                        </template>
+                      </n-badge>
+                    </template>
+                  </n-thing>
+                </n-list-item>
+              </n-list>
+            </n-scrollbar>
+          </n-grid-item>
+          <n-grid-item>
+            <n-spin :show="searchingVersions">
+              <n-h3>
+                {{ versionCount }} ({{ filtered.length }}) Versions
+                <n-radio-group v-model:value="format" name="radiogroup">
+                  <n-space>
+                    <n-radio
+                      v-for="format in formats"
+                      :key="format.value"
+                      :value="format.value"
+                      :label="format.label"
+                      :default-checked="format.defaultChecked"
+                    />
+                  </n-space>
+                </n-radio-group>
 
-                  <a
-                    style="float: right"
-                    :href="
-                      'https://www.discogs.com/master/' +
-                      selectedMasterItemId +
-                      '?format=7%22'
-                    "
-                    v-if="selectedMasterItemId"
-                    target="_discogs_details"
-                  >
-                    MASTER</a
-                  >
-                </n-h3>
-              </n-spin>
-              <n-scrollbar trigger="none" style="max-height: 75vh">
-                <n-list hoverable clickable>
-                  <n-list-item
-                    v-for="item in versionItems"
-                    :key="item.id"
-                    class="release-item"
-                    @click.prevent="handleReleaseClick(+item.id)"
-                    :data-id="item.id"
-                  >
-                    <template #suffix>
-                      <div v-if="item.selected">
-                        <img src="@/assets/arrowRight.svg" height="44" />
-                      </div>
-                    </template>
-                    <n-thing :title="item.title">
-                      <template #avatar>
-                        <n-avatar :src="item?.thumb" :size="75"></n-avatar>
-                      </template>
-                      <template #header-extra>
-                        <n-badge
-                          v-if="item.stats?.user.in_collection"
-                          color="green"
-                        >
-                          <template #value>
-                            <n-icon :component="Library16Filled" />
-                          </template>
-                        </n-badge>
-                        <n-badge v-if="item.stats?.user.in_wantlist">
-                          <template #value>
-                            <n-icon :component="Eye16Regular" />
-                          </template>
-                        </n-badge>
-                      </template>
-                      <template #description>
-                        {{ item.country }}, {{ item.label }}<br />
-                        <code>{{ item.catno }}</code>
-                      </template>
-                    </n-thing>
-                  </n-list-item>
-                </n-list>
-              </n-scrollbar>
-            </n-grid-item>
-            <!-- <n-grid-item>
-              <n-spin :show="searchingDetails">
-                <n-h3>Details</n-h3>
-              </n-spin>
-              <div v-if="releaseDetails">
-                <n-h2>
-                  <a :href="releaseDetails.uri" target="_discogs_details">
-                    {{ releaseDetails.artists_sort }}
-                    -
-                    {{ releaseDetails.title }}
-                  </a>
-                </n-h2>
-                <img :src="releaseDetails.thumb" />
-                &nbsp;
                 <a
+                  style="float: right"
                   :href="
                     'https://www.discogs.com/master/' +
-                    releaseDetails.master_id +
+                    selectedMasterItemId +
                     '?format=7%22'
                   "
+                  v-if="selectedMasterItemId"
                   target="_discogs_details"
                 >
                   MASTER</a
                 >
+              </n-h3>
+            </n-spin>
+            <n-input
+              v-model:value="filterString"
+              ref="filterRef"
+              type="text"
+              placeholder="Search for artist / Title"
+              @keyup="applyFilter"
+            />
 
-                <n-grid :cols="4">
-                  <n-grid-item>
-                    <n-statistic
+            <n-scrollbar trigger="none" style="max-height: 75vh">
+              <n-list hoverable clickable>
+                <n-list-item
+                  v-for="(item, i) in filtered"
+                  :key="i"
+                  class="release-item"
+                  @click.prevent="handleReleaseClick(+item.id)"
+                  :data-id="i"
+                >
+                  <template #suffix>
+                    <div v-if="item.selected">
+                      <img src="@/assets/arrowRight.svg" height="44" />
+                    </div>
+                  </template>
+                  <n-thing :title="item.title">
+                    <template #avatar>
+                      <n-avatar :src="item?.thumb" :size="75"></n-avatar>
+                    </template>
+                    <template #header-extra>
+                      <n-badge
+                        v-if="item.stats?.user.in_collection"
+                        color="green"
+                      >
+                        <template #value>
+                          <n-icon :component="Library16Filled" />
+                        </template>
+                      </n-badge>
+                      <n-badge v-if="item.stats?.user.in_wantlist">
+                        <template #value>
+                          <n-icon :component="Eye16Regular" />
+                        </template>
+                      </n-badge>
+                    </template>
+                    <template #description>
+                      {{ item.country }}, {{ item.label }}<br />
+                      <code>{{ item.catno }}</code>
+                    </template>
+                    <!-- <n-statistic
                       label="Have / Want"
-                      :value="releaseDetails.community.have"
+                      :value="item.stats?.community.in_collection"
                     >
                       <template #suffix>
-                        / {{ releaseDetails.community.want }}
+                        / {{ item.stats?.community.in_wantlist }}
                       </template></n-statistic
-                    >
-                  </n-grid-item>
-                  <n-grid-item>
-                    <n-statistic
-                      label="Lowest Price"
-                      :value="releaseDetails.lowest_price"
-                    >
-                      <template #prefix> € </template></n-statistic
-                    >
-                  </n-grid-item>
-                  <n-grid-item>
-                    <n-statistic
-                      label="For Sale"
-                      :value="releaseDetails.num_for_sale"
-                    ></n-statistic>
-                  </n-grid-item>
-                  <n-grid-item>
-                    <n-statistic
-                      label="Lowest Price"
-                      :value="releaseDetails.lowest_price"
-                    >
-                      <template #prefix> € </template></n-statistic
-                    >
-                  </n-grid-item>
-                </n-grid>
-                {{ releaseDetails.notes }}
-              </div>
-              <n-h2 v-else>No Version selected</n-h2>
-            </n-grid-item> -->
-          </n-grid>
-        </n-layout-content>
-      </n-layout>
+                    > -->
+                  </n-thing>
+                </n-list-item>
+              </n-list>
+            </n-scrollbar>
+          </n-grid-item>
+          <!-- <n-grid-item>
+            <n-spin :show="searchingDetails">
+              <n-h3>Details</n-h3>
+            </n-spin>
+            <div v-if="releaseDetails">
+              <n-h2>
+                <a :href="releaseDetails.uri" target="_discogs_details">
+                  {{ releaseDetails.artists_sort }}
+                  -
+                  {{ releaseDetails.title }}
+                </a>
+              </n-h2>
+              <img :src="releaseDetails.thumb" />
+              &nbsp;
+              <a
+                :href="
+                  'https://www.discogs.com/master/' +
+                  releaseDetails.master_id +
+                  '?format=7%22'
+                "
+                target="_discogs_details"
+              >
+                MASTER</a
+              >
+
+              <n-grid :cols="4">
+                <n-grid-item>
+                  <n-statistic
+                    label="Have / Want"
+                    :value="releaseDetails.community.have"
+                  >
+                    <template #suffix>
+                      / {{ releaseDetails.community.want }}
+                    </template></n-statistic
+                  >
+                </n-grid-item>
+                <n-grid-item>
+                  <n-statistic
+                    label="Lowest Price"
+                    :value="releaseDetails.lowest_price"
+                  >
+                    <template #prefix> € </template></n-statistic
+                  >
+                </n-grid-item>
+                <n-grid-item>
+                  <n-statistic
+                    label="For Sale"
+                    :value="releaseDetails.num_for_sale"
+                  ></n-statistic>
+                </n-grid-item>
+                <n-grid-item>
+                  <n-statistic
+                    label="Lowest Price"
+                    :value="releaseDetails.lowest_price"
+                  >
+                    <template #prefix> € </template></n-statistic
+                  >
+                </n-grid-item>
+              </n-grid>
+              {{ releaseDetails.notes }}
+            </div>
+            <n-h2 v-else>No Version selected</n-h2>
+          </n-grid-item> -->
+        </n-grid>
+      </n-layout-content>
       <n-layout-footer
         bordered
         position="absolute"
