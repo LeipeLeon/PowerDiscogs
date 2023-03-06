@@ -30,6 +30,7 @@ import {
   Eye16Regular,
   Settings24Regular,
 } from "@vicons/fluent";
+import { Vinyl } from "@vicons/tabler";
 import { useWindowFocus } from "@vueuse/core";
 
 const focused = useWindowFocus();
@@ -234,11 +235,7 @@ onMounted(() => {
     <n-layout position="absolute">
       <n-layout-header style="padding: 1rem" bordered inverted>
         <n-space justify="space-between">
-          <n-icon
-            size="28"
-            :component="Settings24Regular"
-            @click="showModal = true"
-          />
+          <n-icon size="28" :component="Vinyl" />
           <n-radio-group v-model:value="format" name="radiogroup">
             <n-space>
               <n-radio
@@ -249,6 +246,11 @@ onMounted(() => {
               />
             </n-space>
           </n-radio-group>
+          <n-icon
+            size="28"
+            :component="Settings24Regular"
+            @click="showModal = true"
+          />
         </n-space>
       </n-layout-header>
       <n-layout position="absolute" style="top: 64px; bottom: 64px">
