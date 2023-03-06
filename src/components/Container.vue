@@ -175,15 +175,19 @@ onMounted(() => {
   <div style="height: 100vh; position: relative">
     <n-layout position="absolute">
       <n-layout-header style="padding: 1rem" bordered inverted>
-        <n-input
-          v-model:value="inputString"
-          ref="inputRef"
-          type="text"
-          placeholder="Search for artist / Title"
-          autofocus
-          @focus="$event.target?.select()"
-          @keyup.enter="handleKeyUp"
-        />
+        <n-space item-style="display: flex;">
+          <n-input
+            v-model:value="inputString"
+            ref="inputRef"
+            type="text"
+            placeholder="Search for artist / Title"
+            autofocus
+            autosize
+            style="min-width: 50vw"
+            @focus="$event.target?.select()"
+            @keyup.enter="handleKeyUp"
+          />
+        </n-space>
       </n-layout-header>
       <n-layout position="absolute" style="top: 64px; bottom: 88px">
         <n-layout-content content-style="padding: 12px">
