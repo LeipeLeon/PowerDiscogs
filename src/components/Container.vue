@@ -167,9 +167,8 @@ watch(focused, (isFocused: boolean) => {
   }
 });
 
-const applyFilter = () => {
-  let filter = filterString.value;
-  console.log("filter.length", !filter.length);
+watch(filterString, (filter: string) => {
+  console.log("filter.length", filter, !filter.length);
   if (filter.length) {
     filtered.value = versionItems.value.filter(
       (version) =>
@@ -181,7 +180,8 @@ const applyFilter = () => {
   } else {
     filtered.value = versionItems.value;
   }
-};
+});
+
 onMounted(() => {
   getApiToken();
 });
@@ -288,10 +288,8 @@ onMounted(() => {
             </n-spin>
             <n-input
               v-model:value="filterString"
-              ref="filterRef"
               type="text"
-              placeholder="Search for artist / Title"
-              @keyup="applyFilter"
+              placeholder="Narrow it down in Label, Cat NO or Country"
             />
 
             <n-scrollbar trigger="none" style="max-height: 75vh">
