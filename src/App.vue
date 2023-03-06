@@ -3,22 +3,25 @@
 import {
   NMessageProvider,
   NWatermark,
+  NDialogProvider,
   NConfigProvider,
 } from "naive-ui";
 
 import Container from "./components/Container.vue";
 
 const themeOverrides = {
-  Checkbox: {
-    textColor: "rgba(255, 255, 255, 1)",
-  },
+  // Radio: {
+  //   textColor: "rgba(255, 255, 255, 1)",
+  // },
 };
 </script>
 
 <template>
   <n-message-provider>
     <n-config-provider :theme-overrides="themeOverrides">
-      <container />
+      <n-dialog-provider>
+        <container />
+      </n-dialog-provider>
     </n-config-provider>
   </n-message-provider>
   <n-watermark

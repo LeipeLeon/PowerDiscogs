@@ -20,6 +20,9 @@ import {
   NThing,
   NScrollbar,
   NSwitch,
+  NRadio,
+  NRadioGroup,
+  NSpace,
 } from "naive-ui";
 import { Library16Filled, Eye16Regular } from "@vicons/fluent";
 import { useWindowFocus } from "@vueuse/core";
@@ -28,6 +31,13 @@ const focused = useWindowFocus();
 const message = useMessage();
 const inputRef = ref();
 const versionCount = ref(0);
+const format = ref<string | null>('7"');
+const formats = [
+  { value: "", label: "All" },
+  { value: '7"', label: '7"' },
+  { value: '12"', label: '12"' },
+  { value: "LP", label: "LP" },
+];
 const inputString = ref();
 let searchType = ref("master");
 let searchingMasters = ref(false);
@@ -126,7 +136,7 @@ const searchMasterRelease = () => {
 const preferredOrder = ["Germany", "Europe", "Netherlands"];
 
 const searchVersion = () => {
-  const fetchUrl = `https://api.discogs.com/masters/${selectedMasterItemId.value}/versions?per_page=100&format=7%22`;
+  const fetchUrl = `https://api.discogs.com/masters/${selectedMasterItemId.value}/versions?per_page=100&format=${format.value}`;
   searchingVersions.value = true;
   versionCount.value = 0;
   versionItems.value = [];
@@ -238,6 +248,18 @@ onMounted(() => {
                 <n-h3>
                   {{ versionCount }}
                   Versions
+                  <n-radio-group v-model:value="format" name="radiogroup">
+                    <n-space>
+                      <n-radio
+                        v-for="format in formats"
+                        :key="format.value"
+                        :value="format.value"
+                        :label="format.label"
+                        :default-checked="format.defaultChecked"
+                      />
+                    </n-space>
+                  </n-radio-group>
+
                   <a
                     style="float: right"
                     :href="
