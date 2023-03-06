@@ -81,6 +81,7 @@ const requestHeaders = () => {
   return {
     Authorization: "Discogs token=" + apiToken.value,
     "User-Agent": "DiscogsRapidSearcher/0.1 +https://wendbaar.nl",
+    Accept: "application/vnd.discogs.v2.html+json",
   };
 };
 
