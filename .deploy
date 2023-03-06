@@ -1,5 +1,5 @@
 echo "-> Building" && \
-npm run build-only && \
+npm run build && \
 echo "-> Copy to S3" && \
 aws s3 sync ./dist s3://berl-discogs/ --delete --acl public-read && \
 echo "-> Invalidate Cloudfront" && \
