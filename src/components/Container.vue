@@ -73,7 +73,14 @@ const handleMasterClick = (id: number) => {
     handleReleaseClick(id);
   }
 };
-
+const openMaster = () => {
+  const releaseUrl =
+    "https://www.discogs.com/master/" +
+    selectedMasterItemId.value +
+    "?format=" +
+    format.value;
+  window.open(releaseUrl, "_discogs_details");
+};
 const handleReleaseClick = (id: number) => {
   const releaseUrl = "https://www.discogs.com/release/" + id;
   window.open(releaseUrl, "_discogs_details");
@@ -294,18 +301,13 @@ onMounted(() => {
                 <n-button @click="showModal = true" style="float: right">
                   <n-icon :component="Settings24Regular" size="28" />
                 </n-button>
-                <a
+                <n-button
+                  @click="openMaster"
                   style="float: right"
-                  :href="
-                    'https://www.discogs.com/master/' +
-                    selectedMasterItemId +
-                    '?format=7%22'
-                  "
                   v-if="selectedMasterItemId"
-                  target="_discogs_details"
                 >
-                  MASTER</a
-                >
+                  MASTER
+                </n-button>
               </n-h3>
             </n-spin>
             <n-input
