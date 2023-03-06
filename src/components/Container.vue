@@ -142,7 +142,7 @@ const searchVersion = () => {
   versionItems.value = [];
   fetchData(fetchUrl)
     .then((data: any) => {
-      versionCount.value = data.pagination.items;
+      versionCount.value = data?.pagination?.items;
       versionItems.value = data.versions
         .slice()
         .sort(function (a: Version, b: Version) {
@@ -212,7 +212,7 @@ onMounted(() => {
               type="text"
               placeholder="Search for artist / Title"
               autofocus
-              @focus="$event.target?.select()"
+              @focus="($event.target as HTMLInputElement).select()"
               @keyup.enter="handleKeyUp"
             />
             <n-scrollbar trigger="none" style="max-height: 75vh">
@@ -267,7 +267,6 @@ onMounted(() => {
                       :key="format.value"
                       :value="format.value"
                       :label="format.label"
-                      :default-checked="format.defaultChecked"
                     />
                   </n-space>
                 </n-radio-group>
