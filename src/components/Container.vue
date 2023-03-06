@@ -39,7 +39,7 @@ const masterItems = ref<Array<MasterItem>>([
   { id: -1, title: "First do a search" },
 ]);
 const versionItems = ref<Array<Version>>([
-  { id: -1, title: "No master selected" },
+  { id: -1, title: "No master selected", country: "" },
 ]);
 
 const handleKeyUp = () => {
@@ -134,7 +134,7 @@ const searchVersion = () => {
       versionCount.value = data.pagination.items;
       versionItems.value = data.versions
         .slice()
-        .sort(function (a, b) {
+        .sort(function (a: Version, b: Version) {
           return (
             preferredOrder.indexOf(a.country) -
             preferredOrder.indexOf(b.country)

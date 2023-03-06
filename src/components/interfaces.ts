@@ -60,7 +60,7 @@ interface Version {
   title: string;
   selected?: boolean;
   label?: string;
-  country?: string;
+  country: string;
   major_formats?: string[];
   format?: string;
   catno?: string;
