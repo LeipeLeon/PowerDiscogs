@@ -6,7 +6,6 @@ import {
   NBadge,
   NLayout,
   NLayoutContent,
-  NLayoutFooter,
   NIcon,
   NInput,
   useMessage,
@@ -22,8 +21,14 @@ import {
   NRadio,
   NRadioGroup,
   NSpace,
+  NButton,
+  NModal,
 } from "naive-ui";
-import { Library16Filled, Eye16Regular } from "@vicons/fluent";
+import {
+  Library16Filled,
+  Eye16Regular,
+  Settings24Regular,
+} from "@vicons/fluent";
 import { useWindowFocus } from "@vueuse/core";
 
 const focused = useWindowFocus();
@@ -40,6 +45,7 @@ const formats = [
 
 const inputString = ref();
 const filterString = ref("");
+const showModal = ref(false);
 let searchType = ref("master");
 let searchingMasters = ref(false);
 let searchingVersions = ref(false);
@@ -188,6 +194,20 @@ onMounted(() => {
 </script>
 
 <template>
+  <n-modal
+    v-model:show="showModal"
+    preset="dialog"
+    title="API Key"
+    positive-text="Submit"
+    @positive-click="setApiToken"
+  >
+    Paste the API token below:
+    <n-input v-model:value="apiToken" type="text" placeholder="API token" />
+    <br />
+    <br />
+    Get your API token
+    <a href="https://www.discogs.com/settings/developers">here</a>
+  </n-modal>
   <div style="height: 100vh; position: relative">
     <n-layout position="absolute">
       <n-layout-content content-style="padding: 12px">
@@ -215,7 +235,7 @@ onMounted(() => {
               @focus="($event.target as HTMLInputElement).select()"
               @keyup.enter="handleKeyUp"
             />
-            <n-scrollbar trigger="none" style="max-height: 75vh">
+            <n-scrollbar trigger="none" style="max-height: 85vh">
               <n-list hoverable clickable>
                 <n-list-item
                   v-for="item in masterItems"
@@ -271,6 +291,9 @@ onMounted(() => {
                   </n-space>
                 </n-radio-group>
 
+                <n-button @click="showModal = true" style="float: right">
+                  <n-icon :component="Settings24Regular" size="28" />
+                </n-button>
                 <a
                   style="float: right"
                   :href="
@@ -291,7 +314,7 @@ onMounted(() => {
               placeholder="Narrow it down in Label, Cat NO or Country"
             />
 
-            <n-scrollbar trigger="none" style="max-height: 75vh">
+            <n-scrollbar trigger="none" style="max-height: 85vh">
               <n-list hoverable clickable>
                 <n-list-item
                   v-for="(item, i) in filtered"
@@ -406,23 +429,6 @@ onMounted(() => {
           </n-grid-item> -->
         </n-grid>
       </n-layout-content>
-      <n-layout-footer
-        bordered
-        position="absolute"
-        style="height: 88px; padding: 24px"
-      >
-        <p>
-          Get your API token
-          <a href="https://www.discogs.com/settings/developers">here</a>
-        </p>
-
-        <n-input
-          v-model:value="apiToken"
-          type="text"
-          placeholder="API token"
-          @keyup.enter="setApiToken"
-        />
-      </n-layout-footer>
     </n-layout>
   </div>
 </template>
