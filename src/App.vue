@@ -1,13 +1,25 @@
 <script setup lang="ts">
 // import { RouterLink, RouterView } from "vue-router";
-import { NMessageProvider, NWatermark } from "naive-ui";
+import {
+  NMessageProvider,
+  NWatermark,
+  NConfigProvider,
+} from "naive-ui";
 
 import Container from "./components/Container.vue";
+
+const themeOverrides = {
+  Checkbox: {
+    textColor: "rgba(255, 255, 255, 1)",
+  },
+};
 </script>
 
 <template>
   <n-message-provider>
-    <container />
+    <n-config-provider :theme-overrides="themeOverrides">
+      <container />
+    </n-config-provider>
   </n-message-provider>
   <n-watermark
     content="PROOF OF CONCEPT"
