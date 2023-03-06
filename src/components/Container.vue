@@ -35,6 +35,7 @@ const focused = useWindowFocus();
 const message = useMessage();
 const inputRef = ref();
 const versionCount = ref(0);
+const masterCount = ref(0);
 const format = ref<string | null>('7"');
 const formats = [
   { value: "", label: "All" },
@@ -138,9 +139,17 @@ const searchMasterRelease = () => {
     "&q=" +
     inputString.value;
   searchingMasters.value = true;
+  versionCount.value = 0;
   versionItems.value = [];
+  filtered.value = [];
+  masterItems.value = [];
+  masterCount.value = 0;
+
   fetchData(fetchUrl)
-    .then((data: any) => (masterItems.value = data.results))
+    .then((data: any) => {
+      masterCount.value = data?.pagination?.items;
+      masterItems.value = data.results;
+    })
     .finally(() => {
       searchingMasters.value = false;
     });
@@ -153,6 +162,7 @@ const searchVersion = () => {
   searchingVersions.value = true;
   versionCount.value = 0;
   versionItems.value = [];
+  filtered.value = [];
   fetchData(fetchUrl)
     .then((data: any) => {
       versionCount.value = data?.pagination?.items;
@@ -222,6 +232,7 @@ onMounted(() => {
           <n-grid-item>
             <n-spin :show="searchingMasters">
               <n-h3>
+                {{ masterCount }}
                 <n-switch
                   checked-value="master"
                   unchecked-value="release"
