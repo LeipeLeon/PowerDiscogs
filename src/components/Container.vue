@@ -232,7 +232,6 @@ onMounted(() => {
           <n-grid-item>
             <n-spin :show="searchingMasters">
               <n-h3>
-                {{ masterCount }}
                 <n-switch
                   checked-value="master"
                   unchecked-value="release"
@@ -242,6 +241,7 @@ onMounted(() => {
                   <template #checked>Master</template>
                   <template #unchecked>Release</template>
                 </n-switch>
+                {{ masterCount }}
               </n-h3>
             </n-spin>
             <n-input
