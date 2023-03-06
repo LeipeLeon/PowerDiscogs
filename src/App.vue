@@ -10,9 +10,9 @@ import {
 import Container from "./components/Container.vue";
 
 const themeOverrides = {
-  // Radio: {
-  //   textColor: "rgba(255, 255, 255, 1)",
-  // },
+  Radio: {
+    textColor: "rgba(255, 255, 255, 1)",
+  },
 };
 </script>
 
