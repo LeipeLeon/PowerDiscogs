@@ -25,12 +25,8 @@ import {
   NButton,
   NModal,
 } from "naive-ui";
-import {
-  Library16Filled,
-  Eye16Regular,
-  Settings24Regular,
-} from "@vicons/fluent";
-import { Vinyl } from "@vicons/tabler";
+import { Library16Filled } from "@vicons/fluent";
+import { Eye, Vinyl, Settings } from "@vicons/tabler";
 import { useWindowFocus } from "@vueuse/core";
 
 const focused = useWindowFocus();
@@ -246,11 +242,7 @@ onMounted(() => {
               />
             </n-space>
           </n-radio-group>
-          <n-icon
-            size="28"
-            :component="Settings24Regular"
-            @click="showModal = true"
-          />
+          <n-icon size="28" :component="Settings" @click="showModal = true" />
         </n-space>
       </n-layout-header>
       <n-layout position="absolute" style="top: 64px; bottom: 64px">
@@ -312,7 +304,7 @@ onMounted(() => {
                         </n-badge>
                         <n-badge v-if="item.user_data?.in_wantlist">
                           <template #value>
-                            <n-icon :component="Eye16Regular" />
+                            <n-icon :component="Eye" />
                           </template>
                         </n-badge>
                       </template>
@@ -369,7 +361,7 @@ onMounted(() => {
                         </n-badge>
                         <n-badge v-if="item.stats?.user.in_wantlist">
                           <template #value>
-                            <n-icon :component="Eye16Regular" />
+                            <n-icon :component="Eye" />
                           </template>
                         </n-badge>
                       </template>
