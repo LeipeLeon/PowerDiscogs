@@ -364,10 +364,22 @@ onMounted(() => {
                             <n-icon :component="Eye" />
                           </template>
                         </n-badge>
+                        {{ item.released }}
                       </template>
                       <template #description>
-                        {{ item.country }}, {{ item.label }}<br />
+                        {{ item.country }}, {{ item.label }}
+                        <span style="float: right"> {{ item.format }} </span
+                        ><br />
                         <code>{{ item.catno }}</code>
+                        <span style="float: right">
+                          <span style="color: red">
+                            {{ item.stats?.community?.in_wantlist }}
+                          </span>
+                          /
+                          <span style="color: green">
+                            {{ item.stats?.community?.in_collection }}
+                          </span>
+                        </span>
                       </template>
                       <!-- <n-statistic
                       label="Have / Want"
