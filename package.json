@@ -20,7 +20,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/jsdom": "^20.0.1",
-    "@types/node": "^18.11.12",
+    "@types/node": "^18.19.86",
     "@vicons/carbon": "^0.12.0",
     "@vicons/fluent": "^0.12.0",
     "@vicons/tabler": "^0.12.0",
